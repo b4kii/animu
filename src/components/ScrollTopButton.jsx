@@ -10,8 +10,8 @@ const buttonStyle = {
   placeContent: "center",
   cursor: "pointer",
   backgroundColor: "beige",
-  right: "1rem",
-  top: "90%",
+  right: "1.3rem",
+  bottom: "1.3rem",
   position: "fixed",
   zIndex: "10"
 }

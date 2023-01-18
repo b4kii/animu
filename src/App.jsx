@@ -1,6 +1,7 @@
 import React from "react";
 import {
   createBrowserRouter,
+  createHashRouter,
   createRoutesFromElements,
   Route,
   Outlet,
@@ -20,24 +21,28 @@ import { homeDataLoader } from "./pages/Home/Home";
 import { recommendationsDataLoader } from "./pages/AnimeRecommendations/AnimeRecommendations";
 import ScrollTopButton from "./components/ScrollTopButton";
 
-const router = createBrowserRouter(
+// const router = createBrowserRouter(
+const router = createHashRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
       <Route index element={<Home />} loader={homeDataLoader} />
       <Route
-        path="/anime-ranking"
+        path="anime-ranking"
         element={<AnimeRanking />}
         loader={animeRankingLoader}
       />
-      <Route path="/anime-recommendations" element={<AnimeRecommendations />} loader={recommendationsDataLoader} />
+      <Route path="anime-recommendations" element={<AnimeRecommendations />} loader={recommendationsDataLoader} />
       <Route
-        path="/anime-info/:animeId"
+        path="anime-info/:animeId"
         loader={animeInfoLoader}
         element={<AnimeInfo />}
       />
       <Route path="*" element={<h1>Page not found</h1>} />
     </Route>
   )
+  // ), {
+  //   basename: "/animu",
+  // }
 );
 
 export default function App() {
