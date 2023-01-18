@@ -1,0 +1,155 @@
+.ranking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3.5rem;
+  min-height: 100vh;
+  /* background-color: burlywood; */
+  /* background-color: rgb(255, 218, 149); */
+  /* background-color: white; */
+}
+
+.filters {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: .5rem 0;
+}
+
+.result {
+  width: 70%;
+  padding-top: 6rem;
+  min-height: 100vh;
+}
+
+.ranking h1 {
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 3em;
+}
+
+.details {
+  border-bottom: 2px solid black;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: .5rem;
+  padding: 1rem;
+}
+
+.details > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.number {
+  font-size: 3em;
+}
+
+.center h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.center > div { 
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.wrapper {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: bold;
+  font-size: .8em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 1rem;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: linear-gradient(
+      90deg,
+      var(--c1, grey),
+      var(--c2, beige) 51%,
+      var(--c1, grey)
+    )
+    var(--x, 0) / 200%;
+  transition: all 300ms;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  width: max-content;
+}
+
+.btn:hover {
+  --x: 100%;
+  transform: rotate(-5deg);
+}
+
+.filter .btn {
+  padding: 0.5rem;
+}
+
+.inactive {
+  --c1: grey;
+  --c2: silver;
+}
+
+.show {
+  --c1: gold;
+  --c2: orange;
+}
+
+.typeActive {
+  --c1: gold;
+  --c2: white;
+  background: linear-gradient(
+      90deg,
+      var(--c1, grey),
+      var(--c2, beige) 51%,
+      var(--c1, grey)
+    )
+    var(--x, 0) / 200%;
+}
+
+.tbdActive {
+  --c1: orange;
+  --c2: white;
+  background: linear-gradient(
+      90deg,
+      var(--c1, grey),
+      var(--c2, beige) 51%,
+      var(--c1, grey)
+    )
+    var(--x, 0) / 200%;
+}
+
+@media (width <= 640px) {
+  .filter {
+    gap: 0.5rem;
+  }
+
+  .result {
+    width: 100%;
+  }
+
+  .details {
+    font-size: .8em;
+    border-radius: 0;
+  }
+
+  .result h1 {
+    font-size: 2.5em;
+  }
+}

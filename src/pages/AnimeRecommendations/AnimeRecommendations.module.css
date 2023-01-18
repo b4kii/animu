@@ -1,0 +1,50 @@
+.container {
+  /* width: 70%; */
+  width: 70vw;
+  padding-top: 3rem;
+  margin-inline: auto;
+}
+
+.container h1 {
+  text-align: center;
+}
+
+.container p {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.recommendation {
+  background: linear-gradient(90deg, gold, orange 51%, gold) 0 / 200%;
+  margin-bottom: 1rem;
+  height: 80vh;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2rem;
+  width: 70%;
+  margin-inline: auto;
+  /* border-radius: 1rem; */
+}
+
+.desc {
+  /* font-size: 1.4em; */
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links a {
+  display: block;
+}
+
+.links p {
+  width: 30%;
+  font-weight: bold;
+  /* font-size: .6em; */
+  background-color: grey;
+}

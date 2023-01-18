@@ -1,0 +1,97 @@
+.animeSearch {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+.resultSearch {
+  display: flex;
+  justify-content: center;
+}
+
+.result {
+  background-color: #ce7c02;
+  list-style: none;
+  max-height: 50vh;
+  overflow-y: scroll;
+  position: fixed;
+  top: 3.4rem;
+  width: clamp(10px, 600px, 97%);
+}
+
+.result::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+.result::-webkit-scrollbar-thumb {
+  height: 5px;
+  width: 100px;
+  border-radius: 1rem;
+  background-color: beige;
+}
+
+.resultRow {
+  --hoveColor: beige;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  padding: 0.5rem;
+  --_g1: conic-gradient(from 90deg at 50% 75%, var(--hoveColor) 90deg, #fff 0) no-repeat;
+  --_g2: conic-gradient(
+      from 90deg at 50% 75%,
+      rgba(255, 0, 0, 0) 90deg,
+      var(--hoveColor) 0
+    )
+    no-repeat;
+  background: var(--_g1) 0 calc(134% - var(--_p, 0%)),
+    var(--_g2) 0 calc(134% - var(--_p, 0%)),
+    var(--_g1) 100% calc(200% - var(--_p, 0%)),
+    var(--_g2) 100% calc(200% - var(--_p, 0%)), #000;
+  background-size: 50.2% 400%;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition: 300ms;
+}
+
+.resultRow:hover {
+  --_p: 134%;
+}
+
+/* .result a {
+  text-decoration: none;
+  color: black;
+} */
+
+.noResult {
+  text-align: center;
+  width: 600px;
+  height: 200px;
+  /* background-color: white; */
+  backdrop-filter: blur(30px);
+  border-radius: 2rem;
+  padding: 1rem;
+  position: fixed;
+  top: 5.5%;
+}
+
+.searchCell {
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.titleEnglish {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.imageWrapper {
+  display: flex;
+  /* justify-content: center; */
+  justify-content: flex-end;
+}
+
+.imageWrapper .searchImage {
+  width: 50px;
+  height: 70px;
+}

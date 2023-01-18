@@ -1,0 +1,218 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  /* background-image: linear-gradient(
+    to right,
+    #ff4d00,
+    #f25d00,
+    #e66a00,
+    #da7400,
+    #ce7c02
+  ); */
+  background-color: #ce7c02 ;
+  padding: 0.2rem;
+  z-index: 3;
+  position: fixed;
+  left: 0;
+  top: 0;
+  /* box-shadow: 0 1px 10px rgba(0, 0, 0, 0.8); */
+}
+
+.logo {
+  font-size: 2rem;
+  margin-left: 0.8rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.letters {
+  display: flex;
+  width: max-content;
+}
+
+.letter {
+  display: block;
+  font-weight: bold;
+  letter-spacing: 10px;
+  color: white;
+}
+
+.logo,
+.menuButton {
+  flex: 2;
+}
+
+.letter {
+  animation: jello 2s infinite;
+}
+
+.searchBar {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  border-radius: 0.2em;
+  background-color: #e0b26d;
+  /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); */
+  transition: 100ms ease-in-out;
+  height: 2.3rem;
+}
+
+.searchBar svg {
+  transition: all 200ms ease-in-out;
+}
+
+.searchBar:focus-within {
+  background-color: beige;
+}
+
+.searchBar:focus-within svg {
+  transform: scale(0.7);
+}
+
+.searchInput {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5rem;
+  margin-left: 2rem;
+  transition: all 500ms;
+}
+
+.menuButton {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.buttonWrapper {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 0.8rem;
+}
+
+.bar,
+.bar::before,
+.bar::after {
+  width: 30px;
+  height: 5px;
+  background-color: white;
+  border-radius: 0.5rem;
+  transition: all var(--transitionSpeed) ease-in-out;
+}
+
+.bar::before,
+.bar::after {
+  content: "";
+  position: absolute;
+}
+
+.bar::before {
+  transform: translateY(-10px);
+}
+
+.bar::after {
+  transform: translateY(10px);
+}
+
+.buttonWrapper.open .bar {
+  transform: translateX(-30px);
+  background: transparent;
+}
+
+.buttonWrapper.open .bar::before {
+  transform: rotate(45deg) translate(20px, -20px);
+}
+
+.buttonWrapper.open .bar::after {
+  transform: rotate(-45deg) translate(20px, 20px);
+}
+
+.sidebar {
+  width: 0;
+  overflow: hidden;
+  height: 100vh;
+  /* background-color: red; */
+  /* background-color: #ff9900; */
+  background-color: orange;
+  top: 0;
+  right: 0;
+  margin-top: 3.4rem;
+  transition: width var(--transitionSpeed) ease;
+  position: fixed;
+  /* z-index: 4; */
+  box-shadow: 1px 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.open {
+  width: 300px;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin: 0 auto;
+}
+
+.sidebar li {
+  text-align: center;
+}
+
+.sidebar a {
+  display: block;
+  width: 100%;
+  color: white;
+  padding: 1em 0;
+}
+
+.sidebar svg {
+  font-size: 4em;
+}
+
+@media (width >= 768px) {
+  .searchBar {
+    flex: 2;
+  }
+}
+
+@media (width >= 1024px) {
+  .searchBar {
+    flex: 1;
+  }
+}
+
+@keyframes jello {
+  10% {
+    transform: none;
+  }
+  20% {
+    transform: skewX(15deg) skewY(15deg);
+  }
+  30% {
+    transform: skewX(-6deg) skewY(-6deg);
+  }
+  40% {
+    transform: skewX(3deg) skewY(3deg);
+  }
+  50% {
+    transform: skewX(-1.5deg) skewY(-1.5deg);
+  }
+  60% {
+    transform: skewX(.7deg) skewY(.7deg);
+  }
+  70% {
+    transform: skewX(-.3deg) skewY(-.3deg);
+  }
+  80% {
+    transform: skewX(.15deg) skewY(.15deg);
+  }
+  90% {
+    transform: none;
+  }
+}

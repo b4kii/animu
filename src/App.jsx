@@ -1,0 +1,57 @@
+import React from "react";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  Outlet,
+  RouterProvider,
+  ScrollRestoration,
+} from "react-router-dom";
+import AnimeRanking from "./pages/AnimeRanking";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
+import AnimeSearch from "./components/AnimeSearch";
+import AnimeInfo from "./pages/AnimeInfo";
+import AnimeRecommendations from "./pages/AnimeRecommendations";
+
+import { animeInfoLoader } from "./pages/AnimeInfo";
+import { animeRankingLoader } from "./pages/AnimeRanking/AnimeRanking";
+import { homeDataLoader } from "./pages/Home/Home";
+import { recommendationsDataLoader } from "./pages/AnimeRecommendations/AnimeRecommendations";
+import ScrollTopButton from "./components/ScrollTopButton";
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route index element={<Home />} loader={homeDataLoader} />
+      <Route
+        path="/anime-ranking"
+        element={<AnimeRanking />}
+        loader={animeRankingLoader}
+      />
+      <Route path="/anime-recommendations" element={<AnimeRecommendations />} loader={recommendationsDataLoader} />
+      <Route
+        path="/anime-info/:animeId"
+        loader={animeInfoLoader}
+        element={<AnimeInfo />}
+      />
+      <Route path="*" element={<h1>Page not found</h1>} />
+    </Route>
+  )
+);
+
+export default function App() {
+  return <RouterProvider router={router} />;
+}
+
+function Root() {
+  return (
+    <>
+      <ScrollRestoration />
+      <AnimeSearch />
+      <Outlet />
+      <ScrollTopButton />
+      <Footer />
+    </>
+  );
+}

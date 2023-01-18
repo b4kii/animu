@@ -1,0 +1,281 @@
+.mainContainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 1rem 3rem 1rem;
+  gap: 5rem;
+  word-wrap: break-word;
+  overflow-x: hidden;
+}
+
+.infoLeft {
+  /* background-color: orange; */
+  padding-top: 1rem;
+  /* box-shadow: -5px 0 10px rgba(0, 0, 0, .5); */
+  /* box-shadow: 0 5px 10px rgba(0, 0, 0, .5); */
+  height: max-content;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-inline: auto;
+  border-right: 3px solid black;
+}
+
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+
+.imageWrapper img {
+  transition: 200ms ease-in-out;
+  /* float: left; */
+  width: 300px;
+  aspect-ratio: 1 / 1.5;
+  /* height: auto; */
+  /* object-fit: cover; */
+}
+
+.scaleOnHover {
+  overflow: hidden;
+  height: max-content;
+  width: max-content;
+}
+
+.scaleOnHover:hover .imageInfo {
+  scale: 1.1;
+}
+
+.detailsWrapper {
+  width: 70%;
+}
+
+.animeBackground {
+  font-size: .8em;
+  margin: 1rem 0;
+}
+
+.detail {
+  font-size: .8em;
+  border-bottom: 2px solid black;
+  margin-bottom: 1rem;
+}
+
+.dropdown {
+  padding-top: 1rem;
+}
+
+.dropdown h2 {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.streaming, .producers {
+  font-size: .8em;
+  margin-left: 1rem;
+}
+
+.dropdown svg {
+  pointer-events: none;
+}
+
+.titles {
+  margin-bottom: 2rem;
+}
+
+.titleNormal {
+  font-size: 3.5rem;
+  position: relative;
+  line-height: 1;
+}
+
+.videoResponsive {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+.videoResponsive iframe {
+  width: 350px;
+  height: 300px;
+  outline: none;
+  border: none;
+}
+
+/* .mainContainer {
+  width: clamp(1000px, 100%, 1200px);
+  min-height: 120vh; 
+  display: grid;
+  place-content: center;
+  background-color: burlywood;
+  padding-top: 5rem;
+  gap: 5rem;
+}
+
+.mainContainer img {
+  transition: 200ms ease-in-out;
+}
+
+.top {
+  display: flex;
+  min-height: 80vh;
+}
+
+.infoLeft {
+  flex: 1;
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.imageWrapper {
+  margin-inline: auto;
+}
+
+.scaleOnHover {
+  overflow: hidden;
+  height: max-content;
+  width: max-content;
+}
+
+.scaleOnHover:hover .imageInfo {
+  scale: 1.1;
+}
+
+.detailsWrapper {
+  padding: 1rem;
+}
+
+.rounded {
+  border-bottom: 2px solid black;
+  margin-bottom: 1rem;
+}
+
+.infoRight {
+  flex: 2;
+  border: 1px solid red;
+}
+
+.infoContainer {
+  padding: 1rem;
+}
+
+
+.dropdown h1 {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+.dropdown svg {
+  pointer-events: none;
+}
+
+.titles { 
+  margin-bottom: 2rem;
+}
+
+.titleNormal {
+  font-size: 4rem;
+  position: relative;
+}
+
+.titleJapanese {
+  font-size: 3rem;
+  position: relative;
+}
+
+.videoResponsive {
+  margin: 0 auto;
+} */
+
+@media (width >= 640px) {
+}
+
+@media (width >= 768px) {
+  .videoResponsive iframe {
+    width: 600px;
+    height: 400px;
+  }
+
+  .top {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+@media (width >= 1024px) {
+  body {
+    font-size: 17px;
+  }
+
+  .mainContainer {
+    display: grid;
+    min-height: 120vh;
+    width: 80%;
+  }
+
+  /* .infoLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 30%;
+  } */
+
+  .animeBackground {
+    margin-bottom: 1rem;
+  }
+
+  .dropdown {
+    padding-top: 1rem;
+  }
+
+  .streaming {
+    overflow: hidden;
+    transition: all 200ms ease-in-out;
+  }
+
+  .videoResponsive iframe {
+    width: 700px;
+    height: 400px;
+  }
+}
+
+@media (width >= 1280px) {
+  body {
+    font-size: 18px;
+  }
+  .videoResponsive iframe {
+    width: 900px;
+    height: 600px;
+  }
+
+  .infoLeft {
+    flex: 1;
+  }
+
+  .infoRight {
+    flex: 3;
+  }
+
+  .description {
+    line-height: 1.7;
+  }
+
+  .imageWrapper img {
+    float: left;
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+  }
+}
