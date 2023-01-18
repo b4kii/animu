@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/animu/static/css/main.6589f9f6.css",
+    "main.js": "/animu/static/js/main.c784f1c1.js",
+    "index.html": "/animu/index.html",
+    "main.6589f9f6.css.map": "/animu/static/css/main.6589f9f6.css.map",
+    "main.c784f1c1.js.map": "/animu/static/js/main.c784f1c1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6589f9f6.css",
+    "static/js/main.c784f1c1.js"
+  ]
+}
