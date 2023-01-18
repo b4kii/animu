@@ -22,13 +22,14 @@ function Video({ embedId }) {
 }
 
 function ImageSection({ data }) {
+  console.log(data);
   return (
     <div className={styles.infoLeft}>
       <div className={styles.imageWrapper}>
         <div className={styles.scaleOnHover}>
           <img
             className={styles.imageInfo}
-            src={data.images.jpg.large_image_url}
+            src={data.images.webp.large_image_url}
             alt="Anime"
           />
         </div>
@@ -110,7 +111,7 @@ function InfoSection({ data }) {
             Streaming platforms
             <KeyboardArrowDownIcon
               sx={{
-                rotate: getState("1") ? "540deg" : "0",
+                rotate: getState("1") ? "180deg" : "0",
                 transition: "all 200ms ease-in-out",
                 fontSize: "2rem",
               }}
@@ -134,7 +135,7 @@ function InfoSection({ data }) {
             Producers
             <KeyboardArrowDownIcon
               sx={{
-                rotate: getState("2") ? "540deg" : "0",
+                rotate: getState("2") ? "180deg" : "0",
                 transition: "all 200ms ease-in-out",
                 fontSize: "2rem",
               }}

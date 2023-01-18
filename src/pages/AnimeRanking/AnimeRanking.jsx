@@ -61,7 +61,8 @@ function RankingResults({ data }) {
             <div className={styles.right}>
               <Link to={`/anime-info/${anime.mal_id}`} target="_blank">
                 <img
-                  src={anime?.images.jpg.image_url}
+                  // src={anime?.images.jpg.image_url}
+                  src={anime?.images.webp.image_url}
                   width="100"
                   height="150"
                   alt="animu"

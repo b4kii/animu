@@ -32,7 +32,8 @@ function Recommendation({ data }) {
             <p key={index}>
               <Link to={`/anime-info/${entry.mal_id}`} target="_blank">
                 {entry.title}
-                <img src={entry.images.jpg.image_url} alt="animu" />
+                {/* <img src={entry.images.jpg.image_url} alt="animu" /> */}
+                <img src={entry.images.webp.image_url} alt="animu" />
               </Link>
             </p>
           );
