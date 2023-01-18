@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/animu/static/css/main.6589f9f6.css",
-    "main.js": "/animu/static/js/main.33cf77ec.js",
+    "main.js": "/animu/static/js/main.8777a2d7.js",
     "index.html": "/animu/index.html",
     "main.6589f9f6.css.map": "/animu/static/css/main.6589f9f6.css.map",
-    "main.33cf77ec.js.map": "/animu/static/js/main.33cf77ec.js.map"
+    "main.8777a2d7.js.map": "/animu/static/js/main.8777a2d7.js.map"
   },
   "entrypoints": [
     "static/css/main.6589f9f6.css",
-    "static/js/main.33cf77ec.js"
+    "static/js/main.8777a2d7.js"
   ]
 }
