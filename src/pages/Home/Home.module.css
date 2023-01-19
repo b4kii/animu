@@ -6,6 +6,7 @@
   padding-top: 3.5rem;
   /* font-size: 3em; */
   overflow-x: hidden;
+  border: 1px solid black;
 }
 
 .container > h2 {

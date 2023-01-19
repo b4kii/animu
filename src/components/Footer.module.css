@@ -1,7 +1,28 @@
 footer {
-  font-size: 1.5em;
   display: grid;
-  text-align: center;
-  height: 300px;
+  place-content: center;
+  padding: 2rem;
   width: 100%;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.media a {
+  display: block;
+  width: max-content;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.copy p {
+  /* margin-inline: auto; */
+  text-align: center;
+}
+
+.icon {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.note {
+  font-size: .7em;
 }

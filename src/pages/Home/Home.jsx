@@ -4,6 +4,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
+import { displayData } from "../../utils/helpers";
+
 const url = "https://api.jikan.moe/v4/random/anime";
 
 export default function Home() {
@@ -14,9 +16,11 @@ export default function Home() {
     <main className={styles.container}>
       <h1>HOME PAGE</h1>
       <div className={styles.random}>
-        <h5 className={styles.title}>{data.title}</h5>
+        <h5 className={styles.title}>
+          {displayData(data.title)}
+        </h5>
         <div className={styles.synopsis}>
-          {data.synopsis}
+          {displayData(data.synopsis)}
         </div>
         <img src={data.images.webp.large_image_url} alt="test" />
       </div>
