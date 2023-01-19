@@ -18,6 +18,7 @@ export default function Home() {
         <div className={styles.synopsis}>
           {data.synopsis}
         </div>
+        <img src={data.images.webp.large_image_url} alt="test" />
       </div>
     </main>
   );

@@ -62,17 +62,11 @@ input[type="search"]::-webkit-search-cancel-button {
   --_p: 134%;
 }
 
-/* .result a {
-  text-decoration: none;
-  color: black;
-} */
-
 .noResult {
+  background-color: #ce7c02;
   text-align: center;
   width: 600px;
   height: 200px;
-  /* background-color: white; */
-  backdrop-filter: blur(30px);
   border-radius: 2rem;
   padding: 1rem;
   position: fixed;

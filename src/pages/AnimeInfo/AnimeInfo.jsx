@@ -170,7 +170,7 @@ export default function AnimeInfo() {
           <ImageSection data={data} />
           <InfoSection data={data} />
         </div>
-        <Video embedId={data.trailer.youtube_id} />
+        <Video embedId={data?.trailer.youtube_id} />
       </main>
     </>
   );

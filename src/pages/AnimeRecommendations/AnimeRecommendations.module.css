@@ -1,8 +1,6 @@
 .container {
-  /* width: 70%; */
   width: 70vw;
   padding-top: 3rem;
-  margin-inline: auto;
 }
 
 .container h1 {
@@ -15,36 +13,70 @@
 }
 
 .recommendation {
-  background: linear-gradient(90deg, gold, orange 51%, gold) 0 / 200%;
+  border: 1px solid black;
   margin-bottom: 1rem;
-  height: 80vh;
-  display: grid;
-  place-content: center;
-  text-align: center;
-  gap: 1rem;
-  padding: 2rem;
-  width: 70%;
+  padding: 1rem;
   margin-inline: auto;
-  /* border-radius: 1rem; */
+  width: 70%;
 }
 
 .desc {
-  /* font-size: 1.4em; */
+  padding: 1rem;
+  text-align: center;
 }
 
 .links {
+  margin-inline: auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.links a {
-  display: block;
+.link {
+  /* flex: 1; */
+  width: 50%;
+}
+
+.links img {
+  max-width: 150px;
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 .links p {
-  width: 30%;
   font-weight: bold;
-  /* font-size: .6em; */
-  background-color: grey;
+  font-size: .8em;
+  margin-inline: auto;
+  width: 50%;
+}
+
+
+/* .links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+
+.link a {
+  display: block;
+  /* margin-inline: auto; */
+  /* width: max-content; */
+}
+
+.imageLink {
+  margin-inline: auto;
+  width: max-content;
+}
+
+@media (width <= 640px) {
+  .container {
+    width: 100vw;
+  }
+
+  .recommendation {
+    width: 100%;
+  }
+
+  .link img {
+    max-width: 150px;
+    height: auto;
+  }
 }

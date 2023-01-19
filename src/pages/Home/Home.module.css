@@ -3,14 +3,12 @@
   width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   padding-top: 3.5rem;
   /* font-size: 3em; */
   overflow-x: hidden;
 }
 
 .container > h2 {
-  /* font-size: clamp(3rem, 1.9157rem + 4.8193vw, 5rem); */
   font-size: clamp(3rem, -0.7952rem + 16.8675vw, 10rem);
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
