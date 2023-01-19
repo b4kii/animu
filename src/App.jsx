@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import AnimeSearch from "./components/AnimeSearch";
 import AnimeInfo from "./pages/AnimeInfo";
 import AnimeRecommendations from "./pages/AnimeRecommendations";
+import NotFound from "./pages/NotFound/NotFound";
 
 import { animeInfoLoader } from "./pages/AnimeInfo";
 import { animeRankingLoader } from "./pages/AnimeRanking/AnimeRanking";
@@ -24,7 +25,7 @@ import ScrollTopButton from "./components/ScrollTopButton";
 // const router = createBrowserRouter(
 const router = createHashRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />}>
+    <Route path="/" element={<Root />} errorElement={<h1>Something went wrong..</h1>}>
       <Route index element={<Home />} loader={homeDataLoader} />
       <Route
         path="anime-ranking"
@@ -37,7 +38,7 @@ const router = createHashRouter(
         loader={animeInfoLoader}
         element={<AnimeInfo />}
       />
-      <Route path="*" element={<h1>Page not found</h1>} />
+      <Route path="*" element={<NotFound />} />
     </Route>
   )
   // ), {

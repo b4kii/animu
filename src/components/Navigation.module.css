@@ -146,16 +146,22 @@
 .sidebar ul {
   list-style: none;
   margin: 0 auto;
+  color: white;
 }
 
 .sidebar li {
   text-align: center;
 }
 
+.sidebar li:hover {
+  background-color: #333333;
+}
+
 .sidebar a {
+  color: inherit;
   display: block;
   width: 100%;
-  color: white;
+  color: inherit;
   padding: 1em 0;
 }
 
