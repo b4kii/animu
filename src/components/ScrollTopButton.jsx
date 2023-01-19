@@ -9,7 +9,7 @@ const buttonStyle = {
   display: "grid",
   placeContent: "center",
   cursor: "pointer",
-  backgroundColor: "beige",
+  backgroundColor: "#adacac",
   right: "1.3rem",
   bottom: "1.3rem",
   position: "fixed",

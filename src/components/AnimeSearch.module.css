@@ -14,7 +14,8 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .result {
-  background-color: #ce7c02;
+  /* background-color: #ce7c02; */
+  background-color: white;
   list-style: none;
   max-height: 50vh;
   overflow-y: scroll;
@@ -32,11 +33,13 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 5px;
   width: 100px;
   border-radius: 1rem;
-  background-color: beige;
+  /* background-color: beige; */
+  background-color: #adacac;
 }
 
 .resultRow {
-  --hoveColor: beige;
+  /* --hoveColor: beige; */
+  --hoveColor: #adacac;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;

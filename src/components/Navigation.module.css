@@ -4,21 +4,13 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  /* background-image: linear-gradient(
-    to right,
-    #ff4d00,
-    #f25d00,
-    #e66a00,
-    #da7400,
-    #ce7c02
-  ); */
-  background-color: #ce7c02 ;
+  background-color: #181818;
   padding: 0.2rem;
   z-index: 3;
   position: fixed;
   left: 0;
   top: 0;
-  /* box-shadow: 0 1px 10px rgba(0, 0, 0, 0.8); */
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
@@ -53,8 +45,7 @@
   display: flex;
   align-items: center;
   border-radius: 0.2em;
-  background-color: #e0b26d;
-  /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5); */
+  background-color: white;
   transition: 100ms ease-in-out;
   height: 2.3rem;
 }
@@ -64,7 +55,8 @@
 }
 
 .searchBar:focus-within {
-  background-color: beige;
+  background-color: #adacac;
+  /* background-color: beige; */
 }
 
 .searchBar:focus-within svg {
@@ -139,16 +131,12 @@
   width: 0;
   overflow: hidden;
   height: 100vh;
-  /* background-color: red; */
-  /* background-color: #ff9900; */
-  background-color: orange;
+  background-color: #181818;
   top: 0;
   right: 0;
   margin-top: 3.4rem;
   transition: width var(--transitionSpeed) ease;
   position: fixed;
-  /* z-index: 4; */
-  box-shadow: 1px 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar.open {

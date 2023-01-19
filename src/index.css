@@ -4,8 +4,8 @@
 
 ::selection {
   /* background-color: #0a707e; */
-  background-color: rgb(168, 111, 5);
-  color: white;
+  background-color: bisque;
+  color: black;
 }
 
 *,
@@ -28,7 +28,7 @@
 }
 
 body {
-  background-color: burlywood;
+  background-color: whitesmoke;
   font-family: "Space Mono", monospace;
   overflow-x: hidden;
   line-height: 1.5;
