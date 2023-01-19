@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/animu/static/css/main.6589f9f6.css",
-    "main.js": "/animu/static/js/main.9b73ce6f.js",
+    "main.css": "/animu/static/css/main.7ca84354.css",
+    "main.js": "/animu/static/js/main.bd2acb9d.js",
     "index.html": "/animu/index.html",
-    "main.6589f9f6.css.map": "/animu/static/css/main.6589f9f6.css.map",
-    "main.9b73ce6f.js.map": "/animu/static/js/main.9b73ce6f.js.map"
+    "main.7ca84354.css.map": "/animu/static/css/main.7ca84354.css.map",
+    "main.bd2acb9d.js.map": "/animu/static/js/main.bd2acb9d.js.map"
   },
   "entrypoints": [
-    "static/css/main.6589f9f6.css",
-    "static/js/main.9b73ce6f.js"
+    "static/css/main.7ca84354.css",
+    "static/js/main.bd2acb9d.js"
   ]
 }
