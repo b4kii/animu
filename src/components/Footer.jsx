@@ -1,19 +1,19 @@
 import React from "react";
-import styles from "./Footer.module.css";
+// import styles from "./Footer.module.css";
 import { Icon } from "@iconify/react";
 
 export default function Footer() {
   return (
     <footer>
-      <div className={styles.media}>
+      <div className="media">
         <a href="https://github.com/b4kii" target="_blank" rel="noreferrer">
-          <Icon icon="bi:github" className={styles.icon} />
+          <Icon icon="bi:github" className="icon" />
         </a>
       </div>
-      <div className={styles.copy}>
+      <div className="copy">
         <p>baki &copy; 2023</p>
       </div>
-      <div className={styles.note}>
+      <div className="note">
         <p>
           This project uses{" "}
           <a href="https://jikan.moe/" target="_blank" rel="noreferrer">

@@ -41,6 +41,10 @@
   padding: 1rem;
 }
 
+.details:last-child {
+  border-bottom: none;
+}
+
 .details > div {
   display: flex;
   flex-direction: column;

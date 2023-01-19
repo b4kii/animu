@@ -96,3 +96,34 @@ a {
 }
 
 /* TODO: Refactor all styles */
+
+footer {
+  border-top: 1px solid #333;
+  /* margin-top: 10rem; */
+  display: grid;
+  place-content: center;
+  padding: 2rem;
+  width: 100%;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.media a {
+  display: block;
+  width: max-content;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.copy p {
+  /* margin-inline: auto; */
+  text-align: center;
+}
+
+.icon {
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.note {
+  font-size: .7em;
+}
