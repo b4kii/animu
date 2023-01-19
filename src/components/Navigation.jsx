@@ -10,7 +10,7 @@ import Sidebar from "./Sidebar";
 
 import styles from "./Navigation.module.css";
 
-function SearchBar({ handleInputChange, query }) {
+function SearchBar({ handleInputChange, query, searchInputRef }) {
   return (
     <div className={styles.searchBar}>
       <SearchIcon
@@ -22,9 +22,10 @@ function SearchBar({ handleInputChange, query }) {
         }}
       />
       <input
+        ref={searchInputRef}
         id="search-id"
         className={styles.searchInput}
-        type="text"
+        type="search"
         placeholder="Search..."
         value={query}
         onChange={handleInputChange}
@@ -33,7 +34,7 @@ function SearchBar({ handleInputChange, query }) {
   );
 }
 
-export default function Navigation({ query, setQuery }) {
+export default function Navigation({ query, setQuery, searchInputRef }) {
   const { setData } = useContext(AnimeDataContext);
   const [isActive, setIsActive] = useState(false);
 
@@ -50,20 +51,21 @@ export default function Navigation({ query, setQuery }) {
     try {
       const fetchData = async () => {
         const res = await axios.get(url(debouncedSearched, 30));
-        setData(prev => {
+        setData((prev) => {
           return {
             ...prev,
             animeData: res.data.data,
-            fetched: true
-          }
-        })
+            fetched: true,
+          };
+        });
       };
       if (debouncedSearched) {
         fetchData();
       }
-      if (query === "") setData(prev => {
-        return { ...prev, animeData: [], fetched: false }
-      });
+      if (query === "")
+        setData((prev) => {
+          return { ...prev, animeData: [], fetched: false };
+        });
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +79,11 @@ export default function Navigation({ query, setQuery }) {
             <span className={styles.letter}>A</span>
           </div>
         </div>
-        <SearchBar handleInputChange={handleInputChange} query={query} />
+        <SearchBar
+          handleInputChange={handleInputChange}
+          query={query}
+          searchInputRef={searchInputRef}
+        />
         <MenuButton isActive={isActive} setIsActive={setIsActive} />
       </nav>
       <Sidebar

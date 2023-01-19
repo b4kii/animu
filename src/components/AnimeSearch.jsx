@@ -36,15 +36,17 @@ function SearchListRow({ item, setData }) {
   );
 }
 
-function SearchResults({ setQuery, setData }) {
+function SearchResults({ setQuery, setData, searchInputRef}) {
   const { data } = useContext(AnimeDataContext);
-  const searchRef = useRef(null);
+  const resultSearchRef = useRef(null);
 
   useEffect(() => {
     const handleClick = (event) => {
-      if (!searchRef.current.contains(event.target)) {
-        setData({ animeData: [], fetched: false });
-        setQuery("");
+      if (!resultSearchRef.current.contains(event.target)) {
+        if (event.target !== searchInputRef.current) {
+          setData({ animeData: [], fetched: false });
+          setQuery("");
+        }
       }
     };
 
@@ -53,7 +55,7 @@ function SearchResults({ setQuery, setData }) {
   });
 
   return (
-    <section className={styles.resultSearch} ref={searchRef}>
+    <section className={styles.resultSearch} ref={resultSearchRef}>
       {data.animeData?.length !== 0 && data.fetched === true ? (
         <ul className={styles.result}>
           {data.animeData?.map((item, index) => (
@@ -70,6 +72,7 @@ function SearchResults({ setQuery, setData }) {
 }
 
 export default function AnimeSearch() {
+  const searchInputRef = useRef(null);
   const [query, setQuery] = useState("");
   const [data, setData] = useState({
     animeData: [],
@@ -79,8 +82,8 @@ export default function AnimeSearch() {
   return (
     <AnimeDataContext.Provider value={{ data, setData }}>
       <section className={styles.animeSearch}>
-        <Navigation query={query} setQuery={setQuery} />
-        <SearchResults setQuery={setQuery} setData={setData} />
+        <Navigation query={query} setQuery={setQuery} searchInputRef={searchInputRef} />
+        <SearchResults setQuery={setQuery} setData={setData} searchInputRef={searchInputRef} />
       </section>
     </AnimeDataContext.Provider>
   );
