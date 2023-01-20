@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="media">
-        <a href="https://github.com/b4kii" target="_blank" rel="noreferrer">
+        <a href="https://github.com/b4kii" target="_blank" rel="noreferrer" aria-label="Github profile">
           <Icon icon="bi:github" className="icon" />
         </a>
       </div>

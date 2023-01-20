@@ -51,6 +51,7 @@ export default function ScrollTopButton() {
       animate={isScrolling ? "visible" : "hidden"}
       variants={variants}
       style={buttonStyle}
+      aria-label="Scroll to top"
     >
       <ArrowUpward sx={{
         fontSize: "2em"
