@@ -125,5 +125,48 @@ footer {
 }
 
 .note {
-  font-size: .7em;
+  font-size: 0.7em;
+}
+
+.container {
+  width: 70vw;
+  height: 100vh;
+  padding-top: "3.5rem";
+  font-size: 2em;
+  display: grid;
+  place-content: center;
+  text-align: center;
+}
+
+.conatiner > p {
+  font-size: .8em;
+}
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: whitesmoke;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  gap: 1rem
+}
+
+.loading > span {
+  font-size: .5em;
+}
+
+.loading > svg {
+  font-size: .8em;
+  margin-top: .7rem;
+}
+
+@media (width <= 640px) {
+  .loading {
+    flex-direction: column;
+  }
 }
