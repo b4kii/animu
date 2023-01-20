@@ -101,8 +101,8 @@
 }
 
 .inactive {
-  background-color: grey;
-  color: white;
+  background-color: rgb(197, 195, 195);
+  color: black;
 }
 
 .show {

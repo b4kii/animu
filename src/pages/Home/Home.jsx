@@ -14,13 +14,14 @@ export default function Home() {
     <main className={styles.container}>
       <h1>HOME PAGE</h1>
       <div className={styles.random}>
-        <h5 className={styles.title}>
-          {displayData(data.title)}
-        </h5>
-        <div className={styles.synopsis}>
-          {displayData(data.synopsis)}
-        </div>
-        <img src={data.images.webp.large_image_url} alt={data?.title} loading="lazy" width="auto" height="300"/>
+        <h5 className={styles.title}>{displayData(data.title)}</h5>
+        <div className={styles.synopsis}>{displayData(data.synopsis)}</div>
+        <img
+          src={data.images.webp.large_image_url}
+          alt={data?.title}
+          width="auto"
+          height="300"
+        />
       </div>
     </main>
   );
