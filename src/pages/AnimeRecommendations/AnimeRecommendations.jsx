@@ -63,7 +63,6 @@ export default function AnimeRecommendations() {
       setHasMore(false);
     }
   };
-  console.log(data);
 
   return (
     <div className={styles.container}>

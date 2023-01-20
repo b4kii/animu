@@ -33,6 +33,7 @@ export default function Sidebar({ isActive, setIsActive, setQuery }) {
             to="/anime-ranking"
             onClick={() => {
               setQuery("");
+              setIsActive(false);
             }}
           >
             Ranking
@@ -43,7 +44,8 @@ export default function Sidebar({ isActive, setIsActive, setQuery }) {
             to="/anime-recommendations"
             onClick={() => {
               setQuery("");
-            }}
+                setIsActive(false);
+              }}
           >
             Recommendations
           </Link>
@@ -53,6 +55,7 @@ export default function Sidebar({ isActive, setIsActive, setQuery }) {
             to="/"
             onClick={() => {
               setQuery("");
+              setIsActive(false);
             }}
           >
             Home

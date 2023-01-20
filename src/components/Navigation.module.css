@@ -140,7 +140,7 @@
 }
 
 .sidebar.open {
-  width: 300px;
+  width: 100%;
 }
 
 .sidebar ul {
@@ -178,6 +178,10 @@
 @media (width >= 1024px) {
   .searchBar {
     flex: 1;
+  }
+
+  .sidebar.open {
+    width: 300px;
   }
 }
 

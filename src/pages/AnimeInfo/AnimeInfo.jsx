@@ -22,7 +22,6 @@ function Video({ embedId }) {
 }
 
 function ImageSection({ data }) {
-  console.log(data);
   return (
     <div className={styles.infoLeft}>
       <div className={styles.imageWrapper}>
@@ -161,7 +160,6 @@ function InfoSection({ data }) {
 
 export default function AnimeInfo() {
   const data = useLoaderData();
-  console.log(data);
 
   return (
     <>
