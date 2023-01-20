@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/821.83865387.chunk.js","mappings":"wHAEA,UAAeA,EAAoB,C","sources":["pages/AnimeRecommendations/index.js"],"sourcesContent":["import AnimeRecommendations from \"./AnimeRecommendations\";\r\n\r\nexport default AnimeRecommendations"],"names":["AnimeRecommendations"],"sourceRoot":""}

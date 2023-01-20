@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/584.264cc887.chunk.js","mappings":"wHAEA,UAAeA,EAAY,C","sources":["pages/AnimeRanking/index.js"],"sourcesContent":["import AnimeRanking from \"./AnimeRanking\";\r\n\r\nexport default AnimeRanking;"],"names":["AnimeRanking"],"sourceRoot":""}
