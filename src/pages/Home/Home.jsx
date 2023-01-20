@@ -1,7 +1,6 @@
 import styles from "./Home.module.css";
 import { motion } from "framer-motion";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 import { displayData } from "../../utils/helpers";
@@ -10,7 +9,6 @@ const url = "https://api.jikan.moe/v4/random/anime";
 
 export default function Home() {
   const [data, error] = useLoaderData();
-  // console.log(data);
 
   return (
     <main className={styles.container}>
@@ -22,7 +20,7 @@ export default function Home() {
         <div className={styles.synopsis}>
           {displayData(data.synopsis)}
         </div>
-        <img src={data.images.webp.large_image_url} alt="test" />
+        <img src={data.images.webp.large_image_url} alt={data?.title} loading="lazy" width="auto" height="300"/>
       </div>
     </main>
   );

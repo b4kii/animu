@@ -62,6 +62,11 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-size: .9em;
+}
+
+.center span {
+  font-weight: bold;
 }
 
 .wrapper {
@@ -81,13 +86,6 @@
   border: none;
   outline: none;
   cursor: pointer;
-  /* background: linear-gradient(
-      90deg,
-      var(--c1, grey),
-      var(--c2, beige) 51%,
-      var(--c1, grey)
-    )
-    var(--x, 0) / 200%; */
   transition: all 300ms;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   width: max-content;
@@ -103,43 +101,21 @@
 }
 
 .inactive {
-  background-color: #adacac;
-  /* --c1: grey;
-  --c2: silver; */
-  /* background-color: gold; */
+  background-color: grey;
+  color: white;
 }
 
 .show {
-  background-color: burlywood;
-  /* --c1: gold;
-  --c2: orange; */
+  background-color: #181818;
+  color: white;
 }
 
 .typeActive {
-  /* --c1: gold;
-  --c2: white;
-  background: linear-gradient(
-      90deg,
-      var(--c1, grey),
-      var(--c2, beige) 51%,
-      var(--c1, grey)
-    )
-    var(--x, 0) / 200%; */
-  /* background-color: gold; */
-  background-color: beige;
+  background-color: white;
 }
 
 .tbdActive {
-  background-color: blanchedalmond;
-  /* --c1: orange;
-  --c2: white;
-  background: linear-gradient(
-      90deg,
-      var(--c1, grey),
-      var(--c2, beige) 51%,
-      var(--c1, grey)
-    )
-    var(--x, 0) / 200%; */
+  background-color: whitesmoke;
 }
 
 @media (width <= 640px) {

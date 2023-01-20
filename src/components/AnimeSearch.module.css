@@ -14,8 +14,8 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .result {
-  /* background-color: #ce7c02; */
-  background-color: white;
+  background-color: #181818;
+  color: white;
   list-style: none;
   max-height: 50vh;
   overflow-y: scroll;
@@ -33,22 +33,21 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 5px;
   width: 100px;
   border-radius: 1rem;
-  /* background-color: beige; */
   background-color: #adacac;
 }
 
 .resultRow {
-  /* --hoveColor: beige; */
-  --hoveColor: #adacac;
+  --hoverColor: #333;
+  color: white;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   padding: 0.5rem;
-  --_g1: conic-gradient(from 90deg at 50% 75%, var(--hoveColor) 90deg, #fff 0) no-repeat;
+  --_g1: conic-gradient(from 90deg at 50% 75%, var(--hoverColor) 90deg, #fff 0) no-repeat;
   --_g2: conic-gradient(
       from 90deg at 50% 75%,
       rgba(255, 0, 0, 0) 90deg,
-      var(--hoveColor) 0
+      var(--hoverColor) 0
     )
     no-repeat;
   background: var(--_g1) 0 calc(134% - var(--_p, 0%)),
@@ -66,11 +65,13 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .noResult {
-  background-color: #ce7c02;
+  display: grid;
+  place-content: center;
+  background-color: #181818;
+  color: white;
   text-align: center;
   width: 600px;
   height: 200px;
-  border-radius: 2rem;
   padding: 1rem;
   position: fixed;
   top: 5.5%;

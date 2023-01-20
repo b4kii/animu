@@ -34,7 +34,6 @@ export default function Sidebar({ isActive, setIsActive, setQuery }) {
             onClick={() => {
               setQuery("");
             }}
-            // reloadDocument
           >
             Ranking
           </Link>

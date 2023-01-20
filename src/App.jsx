@@ -1,4 +1,4 @@
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import {
   createBrowserRouter,
   createHashRouter,
@@ -8,24 +8,69 @@ import {
   RouterProvider,
   ScrollRestoration,
 } from "react-router-dom";
-import AnimeRanking from "./pages/AnimeRanking";
-import Home from "./pages/Home";
+
+// import AnimeRanking from "./pages/AnimeRanking";
+// import Home from "./pages/Home";
+// import AnimeInfo from "./pages/AnimeInfo";
+// import NotFound from "./pages/NotFound/NotFound";
+// import AnimeRecommendations from "./pages/AnimeRecommendations";
+
 import Footer from "./components/Footer";
 import AnimeSearch from "./components/AnimeSearch";
-import AnimeInfo from "./pages/AnimeInfo";
-import AnimeRecommendations from "./pages/AnimeRecommendations";
-import NotFound from "./pages/NotFound/NotFound";
+import ErrorPage from "./pages/ErrorPage";
 
 import { animeInfoLoader } from "./pages/AnimeInfo";
 import { animeRankingLoader } from "./pages/AnimeRanking/AnimeRanking";
 import { homeDataLoader } from "./pages/Home/Home";
 import { recommendationsDataLoader } from "./pages/AnimeRecommendations/AnimeRecommendations";
 import ScrollTopButton from "./components/ScrollTopButton";
+import LoadingScreen from "./components/LoadingScreen";
 
-// const router = createBrowserRouter(
+// const Home = lazy(() => import("./pages/Home"));
+// const AnimeRanking = lazy(() => import("./pages/AnimeRanking"));
+// const AnimeInfo = lazy(() => import("./pages/AnimeInfo"));
+// const NotFound = lazy(()=> import("./pages/NotFound"));
+// const AnimeRecommendations = lazy(() => import("./pages/AnimeRecommendations"));
+
+const Home = lazy(() => {
+  return Promise.all([
+    import("./pages/Home"),
+    new Promise(resolve => setTimeout(resolve, 500))
+  ])
+  .then(([moduleExports]) => moduleExports);
+});
+const AnimeRanking = lazy(() => {
+  return Promise.all([
+    import("./pages/AnimeRanking"),
+    new Promise(resolve => setTimeout(resolve, 500))
+  ])
+  .then(([moduleExports]) => moduleExports);
+});
+const AnimeInfo = lazy(() => {
+  return Promise.all([
+    import("./pages/AnimeInfo"),
+    new Promise(resolve => setTimeout(resolve, 500))
+  ])
+  .then(([moduleExports]) => moduleExports);
+});
+const NotFound = lazy(() => {
+  return Promise.all([
+    import("./pages/NotFound"),
+    new Promise(resolve => setTimeout(resolve, 500))
+  ])
+  .then(([moduleExports]) => moduleExports);
+});
+const AnimeRecommendations = lazy(() => {
+  return Promise.all([
+    import("./pages/AnimeRecommendations"),
+    new Promise(resolve => setTimeout(resolve, 500))
+  ])
+  .then(([moduleExports]) => moduleExports);
+});
+
 const router = createHashRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Root />} errorElement={<h1>Something went wrong..</h1>}>
+    <Route path="/" element={<Root />} errorElement={<ErrorPage />}>
       <Route index element={<Home />} loader={homeDataLoader} />
       <Route
         path="anime-ranking"
@@ -41,9 +86,6 @@ const router = createHashRouter(
       <Route path="*" element={<NotFound />} />
     </Route>
   )
-  // ), {
-  //   basename: "/animu",
-  // }
 );
 
 export default function App() {
@@ -55,7 +97,9 @@ function Root() {
     <>
       <ScrollRestoration />
       <AnimeSearch />
-      <Outlet />
+      <Suspense fallback={<LoadingScreen />}>
+        <Outlet />
+      </Suspense>
       <ScrollTopButton />
       <Footer />
     </>

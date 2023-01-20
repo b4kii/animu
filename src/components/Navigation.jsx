@@ -29,6 +29,7 @@ function SearchBar({ handleInputChange, query, searchInputRef }) {
         placeholder="Search..."
         value={query}
         onChange={handleInputChange}
+        autoComplete="off"
       />
     </div>
   );

@@ -30,7 +30,7 @@ function ImageSection({ data }) {
           <img
             className={styles.imageInfo}
             src={data.images.webp.large_image_url}
-            alt="Anime"
+            alt={data?.title}
           />
         </div>
       </div>
@@ -111,8 +111,8 @@ function InfoSection({ data }) {
             Streaming platforms
             <KeyboardArrowDownIcon
               sx={{
-                rotate: getState("1") ? "180deg" : "0",
-                transition: "all 200ms ease-in-out",
+                rotate: getState("1") ? "540deg" : "0",
+                transition: "200ms ease-in-out",
                 fontSize: "2rem",
               }}
             />
@@ -135,7 +135,7 @@ function InfoSection({ data }) {
             Producers
             <KeyboardArrowDownIcon
               sx={{
-                rotate: getState("2") ? "180deg" : "0",
+                rotate: getState("2") ? "540deg" : "0",
                 transition: "all 200ms ease-in-out",
                 fontSize: "2rem",
               }}
@@ -170,7 +170,7 @@ export default function AnimeInfo() {
           <ImageSection data={data} />
           <InfoSection data={data} />
         </div>
-        <Video embedId={data?.trailer.youtube_id} />
+        <Video embedId={data.trailer.youtube_id ? data.trailer.youtube_id : "dQw4w9WgXcQ"} />
       </main>
     </>
   );

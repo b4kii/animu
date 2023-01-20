@@ -31,7 +31,7 @@ function Recommendation({ data, index }) {
           return (
             <div className={styles.link} key={index}>
               <Link className={styles.imageLink} to={`/anime-info/${entry.mal_id}`} target="_blank">
-                  <img src={entry.images.webp.image_url} alt="animu" />
+                  <img src={entry.images.webp.image_url} alt={entry?.title} loading="lazy"/>
               </Link>
               <Link to={`/anime-info/${entry.mal_id}`} target="_blank">
                 <p>{entry.title}</p>

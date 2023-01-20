@@ -40,32 +40,32 @@ function RankingResults({ data }) {
             <div className={styles.center}>
               <h3>{displayData(anime.title)}</h3>
               <div>
-                <h5>SCORE</h5> {displayData(anime.score)}
+                <span>SCORE</span> {displayData(anime.score)}
               </div>
               <div>
-                <h5>SCORED BY</h5> {displayData(anime.scored_by)}
+                <span>SCORED BY</span> {displayData(anime.scored_by)}
               </div>
               <div>
-                <h5>POPULARITY</h5> {displayData(anime.popularity)}
+                <span>POPULARITY</span> {displayData(anime.popularity)}
               </div>
               <div>
-                <h5>FAVORITES</h5> {displayData(anime.favorites)}
+                <span>FAVORITES</span> {displayData(anime.favorites)}
               </div>
               <div>
-                <h5>MEMBERS</h5> {displayData(anime.members)}
+                <span>MEMBERS</span> {displayData(anime.members)}
               </div>
               <div>
-                <h5>RANK</h5> {displayData(anime.rank)}
+                <span>RANK</span> {displayData(anime.rank)}
               </div>
             </div>
             <div className={styles.right}>
               <Link to={`/anime-info/${anime.mal_id}`} target="_blank">
                 <img
-                  // src={anime?.images.jpg.image_url}
                   src={anime?.images.webp.image_url}
                   width="100"
                   height="150"
-                  alt="animu"
+                  alt={anime?.title}
+                  loading="lazy"
                 />
               </Link>
             </div>

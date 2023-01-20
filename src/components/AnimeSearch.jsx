@@ -25,9 +25,8 @@ function SearchListRow({ item, setData }) {
           <div className={styles.imageWrapper}>
             <img
               className={styles.searchImage}
-              // src={item.images.jpg.small_image_url}
               src={item.images.webp.small_image_url}
-              alt=""
+              alt={item?.title}
             />
           </div>
         </div>
