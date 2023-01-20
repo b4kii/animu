@@ -142,7 +142,7 @@ footer {
   font-size: .8em;
 }
 
-.loading {
+.loading-screen {
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -156,17 +156,17 @@ footer {
   gap: 1rem
 }
 
-.loading > span {
-  font-size: .5em;
+.loading-screen > span {
+  font-size: 3em;
 }
 
-.loading > svg {
-  font-size: .8em;
+.loading-screen > svg {
+  font-size: 4em;
   margin-top: .7rem;
 }
 
 @media (width <= 640px) {
-  .loading {
+  .loading-screen {
     flex-direction: column;
   }
 }
