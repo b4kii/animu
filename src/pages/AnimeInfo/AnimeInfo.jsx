@@ -34,31 +34,38 @@ function LeftSection({ data }) {
       </div>
       <div className={styles.detailsWrapper}>
         <div className={styles.animeBackground}>
-          {displayData(data.background)}
+          {/* {displayData(data.background)} */}
+          {data.background}
         </div>
         <div className={`${styles.detail}`}>
           <h4>Aired:</h4>
-          {displayData(data.aired.string)}
+          {/* {displayData(data.aired.string)} */}
+          {data.aired.string}
         </div>
         <div className={`${styles.detail}`}>
           <h4>Duration:</h4>
-          {displayData(data.duration)}
+          {/* {displayData(data.duration)} */}
+          {data.duration}
         </div>
         <div className={`${styles.detail}`}>
           <h4>Episodes:</h4>
-          {displayData(data.episodes)}
+          {/* {displayData(data.episodes)} */}
+          {data.episodes}
         </div>
         <div className={`${styles.detail}`}>
           <h4>Score:</h4>
-          {displayData(data.score)}
+          {/* {displayData(data.score)} */}
+          {data.score}
         </div>
         <div className={`${styles.detail}`}>
           <h4>Status:</h4>
-          {displayData(data.status)}
+          {/* {displayData(data.status)} */}
+          {data.status}
         </div>
         <div className={`${styles.detail}`}>
           <h4>Rating:</h4>
-          {displayData(data.rating)}
+          {/* {displayData(data.rating)} */}
+          {data.rating}
         </div>
       </div>
     </div>
@@ -119,7 +126,8 @@ function RightSection({ data }) {
             {data.title ? data.title : data.title_english}
           </h3>
         </div>
-        <div className={styles.description}>{displayData(data.synopsis)}</div>
+        {/* <div className={styles.description}>{displayData(data.synopsis)}</div> */}
+        <div className={styles.description}>{data.synopsis}</div>
         <Dropdown data={data.streaming}>Streaming platforms</Dropdown>
         <Dropdown data={data.producers}>Producers</Dropdown>
       </div>
