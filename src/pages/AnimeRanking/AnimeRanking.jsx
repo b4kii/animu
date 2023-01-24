@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import axios from "axios";
 import styles from "./AnimeRanking.module.css";
 import { Link, useLoaderData } from "react-router-dom";
 
 import { motion } from "framer-motion";
-import uuid from "react-uuid";
-import { displayData, } from "../../utils/helpers";
-import { Icon } from '@iconify/react';
+import { displayData } from "../../utils/helpers";
+import { Icon } from "@iconify/react";
 
 const types = ["tv", "movie", "ova", "special", "ona", "music"];
 const tbd = ["airing", "upcoming", "popularity", "favorite"];
@@ -26,7 +25,7 @@ function RankingResults({ data }) {
         return (
           <motion.div
             className={styles.details}
-            key={index}
+            key={anime.mal_id}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.5 }}
@@ -70,7 +69,6 @@ function RankingResults({ data }) {
               </Link>
             </div>
           </motion.div>
-          // </div>
         );
       })}
     </div>
@@ -94,7 +92,6 @@ function RankingFilter({ data, which, handleClick, type, setActive }) {
             `}
             key={index}
             onClick={(event) => {
-              handleClick(event);
               setActive(item);
             }}
             value={item}
@@ -107,22 +104,10 @@ function RankingFilter({ data, which, handleClick, type, setActive }) {
   );
 }
 
-export default function AnimeRanking() {
-  const initialData = useLoaderData();
-
-  const [data, setData] = useState(initialData);
+function Ranking({ data, setData }) {
   const [type, setType] = useState("tv");
   const [filter, setFilter] = useState("airing");
-  const [uniqueId, setUniqueId] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const handleType = (event) => {
-    setType(event.target.value);
-  };
-
-  const handleFilter = (event) => {
-    setFilter(event.target.value);
-  };
 
   const handleShow = () => {
     const fetchData = async () => {
@@ -138,40 +123,46 @@ export default function AnimeRanking() {
   };
 
   return (
-    <main className={styles.ranking}>
-      <h1>ANIME RANKING</h1>
+    <>
       <div className={styles.filters}>
         <RankingFilter
           data={types}
           which={"types"}
-          handleClick={handleType}
           type={type}
           setActive={setType}
         />
         <RankingFilter
           data={tbd}
           which={"tbd"}
-          handleClick={handleFilter}
           type={filter}
           setActive={setFilter}
         />
         <div className={styles.wrapper}>
           <button
-            onClick={() => {
-              handleShow();
-              setUniqueId(uuid());
-            }}
+            onClick={handleShow}
             className={`${styles.btn} ${styles.show}`}
           >
-            SHOW
+            show
           </button>
         </div>
       </div>
       {loading ? (
         <Icon icon="svg-spinners:bars-scale" className="loading" />
       ) : (
-        <RankingResults key={uniqueId} data={data} />
+        <RankingResults key={data.mal_id} data={data} />
       )}
+    </>
+  );
+}
+
+export default function AnimeRanking() {
+  const initialData = useLoaderData();
+
+  const [data, setData] = useState(initialData);
+  return (
+    <main className={styles.ranking}>
+      <h1 className="main-header">ANIME RANKING</h1>
+      <Ranking data={data} setData={setData} />
     </main>
   );
 }

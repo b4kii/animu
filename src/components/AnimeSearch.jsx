@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext, useEffect, useState, useRef } from "react";
 import Navigation from "./Navigation";
 import { AnimeDataContext } from "../contexts/AnimeDataContext";
@@ -5,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./AnimeSearch.module.css";
 
-function SearchListRow({ item, setData }) {
+function DropdownListRow({ item, setData }) {
   return (
     <li>
       <Link
@@ -21,7 +22,7 @@ function SearchListRow({ item, setData }) {
             </span>
           </div>
           <div className={styles.searchCell}>{item.type}</div>
-          <div className={ styles.SearchCell }>{item.status}</div>
+          <div className={styles.SearchCell}>{item.status}</div>
           <div className={styles.imageWrapper}>
             <img
               className={styles.searchImage}
@@ -35,22 +36,26 @@ function SearchListRow({ item, setData }) {
   );
 }
 
-function SearchResults({ setQuery, setData, searchInputRef}) {
+function DropdownSearch({ setQuery, setData, searchInputRef }) {
   const { data } = useContext(AnimeDataContext);
   const resultSearchRef = useRef(null);
 
   useEffect(() => {
-    const handleClick = (event) => {
-      if (!resultSearchRef.current.contains(event.target)) {
-        if (event.target !== searchInputRef.current) {
-          setData({ animeData: [], fetched: false });
-          setQuery("");
+    if (data.animeData.length !== 0) {
+      const handleClick = (event) => {
+        if (!resultSearchRef.current.contains(event.target)) {
+          if (event.target !== searchInputRef.current) {
+            setData({ animeData: [], fetched: false });
+            setQuery("");
+          }
         }
-      }
-    };
+      };
 
-    document.addEventListener("click", handleClick);
-    return () => document.removeEventListener("click", handleClick);
+      document.addEventListener("click", handleClick);
+      return () => {
+        document.removeEventListener("click", handleClick);
+      };
+    }
   });
 
   return (
@@ -58,7 +63,7 @@ function SearchResults({ setQuery, setData, searchInputRef}) {
       {data.animeData?.length !== 0 && data.fetched === true ? (
         <ul className={styles.result}>
           {data.animeData?.map((item, index) => (
-            <SearchListRow item={item} setData={setData} key={index} />
+            <DropdownListRow item={item} setData={setData} key={item.mal_id} />
           ))}
         </ul>
       ) : data.animeData?.length === 0 && data.fetched === true ? (
@@ -75,15 +80,23 @@ export default function AnimeSearch() {
   const [query, setQuery] = useState("");
   const [data, setData] = useState({
     animeData: [],
-    fetched: null,
+    fetched: false,
   });
 
   return (
     <AnimeDataContext.Provider value={{ data, setData }}>
-      <section className={styles.animeSearch}>
-        <Navigation query={query} setQuery={setQuery} searchInputRef={searchInputRef} />
-        <SearchResults setQuery={setQuery} setData={setData} searchInputRef={searchInputRef} />
-      </section>
+      <Navigation
+        query={query}
+        setQuery={setQuery}
+        searchInputRef={searchInputRef}
+      />
+      {data.animeData.length !== 0 ? (
+        <DropdownSearch
+          setQuery={setQuery}
+          setData={setData}
+          searchInputRef={searchInputRef}
+        />
+      ) : null}
     </AnimeDataContext.Provider>
   );
 }

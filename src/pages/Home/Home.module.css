@@ -1,23 +1,56 @@
 .container {
-  height: 100vh;
+  min-height: 100vh;
   width: 70%;
   display: flex;
   flex-direction: column;
-  padding-top: 3.5rem;
-  /* font-size: 3em; */
+  justify-content: space-between;
+  padding-top: 3rem;
   overflow-x: hidden;
-  border: 1px solid black;
 }
 
-.container > h2 {
-  font-size: clamp(3rem, -0.7952rem + 16.8675vw, 10rem);
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.container h1 {
+  /* font-size: 4em; */
+  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+  /* margin-top: 1rem; */
+}
+
+.container {
+  margin-left: 3rem;
+}
+
+.randomAnime {
+  padding: 1rem;
+  border: 2px solid black;
+  background-color: #222;
+  color: white;
+}
+
+.suggestion {
+  width: 30vw;
+  opacity: 1;
+  transition: 200ms ease-in-out;
+  animation: show 1s ease-in-out;
+}
+
+.randomAnime > p {
+  text-transform: uppercase;
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .title {
-  font-size: .9em;
+  font-size: 1em;
 }
 
 .synopsis {
   font-size: .8em;
+}
+
+@keyframes  show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

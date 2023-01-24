@@ -2,12 +2,6 @@ input[type="search"]::-webkit-search-cancel-button {
   cursor: pointer;
 }
 
-.animeSearch {
-  position: absolute;
-  top: 0;
-  z-index: 10;
-}
-
 .resultSearch {
   display: flex;
   justify-content: center;
@@ -17,9 +11,10 @@ input[type="search"]::-webkit-search-cancel-button {
   background-color: #181818;
   color: white;
   list-style: none;
-  max-height: 50vh;
+  max-height: 60vh;
   overflow-y: scroll;
   position: fixed;
+  z-index: 2;
   top: 3.4rem;
   width: clamp(10px, 600px, 97%);
 }
@@ -37,31 +32,18 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .resultRow {
-  --hoverColor: #333;
   color: white;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
   padding: 0.5rem;
-  --_g1: conic-gradient(from 90deg at 50% 75%, var(--hoverColor) 90deg, #fff 0) no-repeat;
-  --_g2: conic-gradient(
-      from 90deg at 50% 75%,
-      rgba(255, 0, 0, 0) 90deg,
-      var(--hoverColor) 0
-    )
-    no-repeat;
-  background: var(--_g1) 0 calc(134% - var(--_p, 0%)),
-    var(--_g2) 0 calc(134% - var(--_p, 0%)),
-    var(--_g1) 100% calc(200% - var(--_p, 0%)),
-    var(--_g2) 100% calc(200% - var(--_p, 0%)), #000;
-  background-size: 50.2% 400%;
-  -webkit-background-clip: text, padding-box;
-  background-clip: text, padding-box;
-  transition: 300ms;
+  background: linear-gradient(to left, #181818 50%, #333 50%) right;
+  background-size: 200% 100%;
+  transition: 200ms;
 }
 
 .resultRow:hover {
-  --_p: 134%;
+  background-position: left;
 }
 
 .noResult {
@@ -74,7 +56,7 @@ input[type="search"]::-webkit-search-cancel-button {
   height: 200px;
   padding: 1rem;
   position: fixed;
-  top: 5.5%;
+  top: 3.4rem;
 }
 
 .searchCell {
@@ -84,12 +66,10 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .titleEnglish {
   font-size: 0.9em;
-  font-weight: bold;
 }
 
 .imageWrapper {
   display: flex;
-  /* justify-content: center; */
   justify-content: flex-end;
 }
 

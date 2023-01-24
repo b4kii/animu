@@ -1,11 +1,10 @@
 import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import SearchIcon from "@mui/icons-material/Search";
+import { Icon } from "@iconify/react";
 
 import useDebounce from "../hooks/useDebounce";
 import { AnimeDataContext } from "../contexts/AnimeDataContext";
-import MenuButton from "./MenuButton";
 import Sidebar from "./Sidebar";
 
 import styles from "./Navigation.module.css";
@@ -13,8 +12,9 @@ import styles from "./Navigation.module.css";
 function SearchBar({ handleInputChange, query, searchInputRef }) {
   return (
     <div className={styles.searchBar}>
-      <SearchIcon
-        sx={{
+      <Icon
+        icon="material-symbols:search-rounded"
+        style={{
           fontSize: "1.6em",
           pointerEvents: "none",
           position: "absolute",
@@ -29,6 +29,11 @@ function SearchBar({ handleInputChange, query, searchInputRef }) {
         placeholder="Search..."
         value={query}
         onChange={handleInputChange}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            console.log("enter");
+          }
+        }}
         autoComplete="off"
       />
     </div>
@@ -37,7 +42,6 @@ function SearchBar({ handleInputChange, query, searchInputRef }) {
 
 export default function Navigation({ query, setQuery, searchInputRef }) {
   const { setData } = useContext(AnimeDataContext);
-  const [isActive, setIsActive] = useState(false);
 
   const debouncedSearched = useDebounce(query, 600);
 
@@ -85,11 +89,8 @@ export default function Navigation({ query, setQuery, searchInputRef }) {
           query={query}
           searchInputRef={searchInputRef}
         />
-        <MenuButton isActive={isActive} setIsActive={setIsActive} />
       </nav>
       <Sidebar
-        isActive={isActive}
-        setIsActive={setIsActive}
         setQuery={setQuery}
       />
     </>

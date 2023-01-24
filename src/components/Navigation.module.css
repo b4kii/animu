@@ -5,7 +5,7 @@
   align-items: center;
   gap: 1rem;
   background-color: #181818;
-  padding: 0.2rem;
+  padding: .55rem;
   z-index: 3;
   position: fixed;
   left: 0;
@@ -14,9 +14,10 @@
 }
 
 .logo {
+  position: absolute;
+  left: 1rem;
   font-size: 2rem;
-  margin-left: 0.8rem;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Leckerli One', cursive;
 }
 
 .letters {
@@ -31,17 +32,12 @@
   color: white;
 }
 
-.logo,
-.menuButton {
-  flex: 2;
-}
-
 .letter {
   animation: jello 2s infinite;
 }
 
 .searchBar {
-  flex: 3;
+  width: 10rem;
   display: flex;
   align-items: center;
   border-radius: 0.2em;
@@ -56,7 +52,6 @@
 
 .searchBar:focus-within {
   background-color: #adacac;
-  /* background-color: beige; */
 }
 
 .searchBar:focus-within svg {
@@ -74,20 +69,21 @@
 }
 
 .menuButton {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  position: fixed;
+  right: 1rem;
+  top: .85rem;
+  z-index: 10;
+  cursor: pointer;
 }
 
 .buttonWrapper {
-  cursor: pointer;
+  pointer-events: none;
   width: 30px;
   height: 30px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-right: 0.8rem;
 }
 
 .bar,
@@ -137,6 +133,7 @@
   margin-top: 3.4rem;
   transition: width var(--transitionSpeed) ease;
   position: fixed;
+  z-index: 2;
 }
 
 .sidebar.open {
@@ -171,15 +168,8 @@
 
 @media (width >= 768px) {
   .searchBar {
-    flex: 2;
+    width: 20rem;
   }
-}
-
-@media (width >= 1024px) {
-  .searchBar {
-    flex: 1;
-  }
-
   .sidebar.open {
     width: 300px;
   }

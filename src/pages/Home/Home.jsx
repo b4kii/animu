@@ -1,28 +1,46 @@
+import React, { useEffect, useState, useCallback } from "react";
 import styles from "./Home.module.css";
-import { motion } from "framer-motion";
 import axios from "axios";
 import { useLoaderData } from "react-router-dom";
 
 import { displayData } from "../../utils/helpers";
+import { motion } from "framer-motion";
 
 const url = "https://api.jikan.moe/v4/random/anime";
+
+function RandomAnime({ data }) {
+  return (
+    <div className={styles.randomAnime}>
+      <p>Check this out</p>
+      <div className={`${styles.suggestion}`}>
+        <p className={styles.title}>{displayData(data.title)}</p>
+        <div className={styles.synopsis}>
+          {displayData(data.synopsis?.split(" ").splice(0, 5).join(" "))}..
+        </div>
+        <img
+          src={data.images.webp.large_image_url}
+          alt={data?.title}
+          width="150"
+          height="250"
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const [data, error] = useLoaderData();
 
   return (
     <main className={styles.container}>
-      <h1>HOME PAGE</h1>
-      <div className={styles.random}>
-        <h5 className={styles.title}>{displayData(data.title)}</h5>
-        <div className={styles.synopsis}>{displayData(data.synopsis)}</div>
-        <img
-          src={data.images.webp.large_image_url}
-          alt={data?.title}
-          width="auto"
-          height="300"
-        />
+      <div>
+        <h1 className="main-header">HOME PAGE</h1>
+        <p style={{ fontSize: "2em" }}>Hello there!</p>
+        <p>Search for information about your favourite anime.</p>
+        <p>Check anime ranking.</p>
+        <p>Look into interesting recommendations.</p>
       </div>
+      <RandomAnime data={data} />
     </main>
   );
 }

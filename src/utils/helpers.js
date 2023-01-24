@@ -11,8 +11,7 @@ export const displayArrayData = (data, key) => {
 
   return data.map((item, index) => {
     return (
-      <p key={uuid()}>
-        {" "}
+      <p key={index}>
         {item[key.name]} {item[key.url]}
       </p>
     );

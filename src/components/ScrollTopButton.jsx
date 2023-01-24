@@ -1,3 +1,4 @@
+import React from "react";
 import { ArrowUpward } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -13,8 +14,8 @@ const buttonStyle = {
   right: "1.3rem",
   bottom: "1.3rem",
   position: "fixed",
-  zIndex: "10"
-}
+  zIndex: "10",
+};
 
 export default function ScrollTopButton() {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -40,9 +41,9 @@ export default function ScrollTopButton() {
   }, []);
 
   const variants = {
-    visible: {scale: 1, opacity: 1},
-    hidden: {scale: 0, opacity: 0},
-  }
+    visible: { scale: 1, opacity: 1 },
+    hidden: { scale: 0, opacity: 0 },
+  };
 
   return (
     <motion.button
@@ -53,9 +54,11 @@ export default function ScrollTopButton() {
       style={buttonStyle}
       aria-label="Scroll to top"
     >
-      <ArrowUpward sx={{
-        fontSize: "2em"
-      }} />
+      <ArrowUpward
+        sx={{
+          fontSize: "2em",
+        }}
+      />
     </motion.button>
   );
-}
+};

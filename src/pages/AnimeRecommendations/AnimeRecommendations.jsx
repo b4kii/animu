@@ -8,7 +8,7 @@ import { Icon } from "@iconify/react";
 import styles from "./AnimeRecommendations.module.css";
 const url = "https://api.jikan.moe/v4/recommendations/anime";
 
-function Recommendation({ data, index }) {
+function Recommendation({ data }) {
   const variants = {
     visible: { scale: 1, opacity: 1 },
     hidden: { scale: 0, opacity: 1 },
@@ -29,9 +29,19 @@ function Recommendation({ data, index }) {
       <div className={styles.links}>
         {data.entry.map((entry, index) => {
           return (
-            <div className={styles.link} key={index}>
-              <Link className={styles.imageLink} to={`/anime-info/${entry.mal_id}`} target="_blank">
-                  <img src={entry.images.webp.image_url} alt={entry?.title} loading="lazy"/>
+            <div className={styles.link} key={data.content.slice(index, 10)}>
+              <Link
+                className={styles.imageLink}
+                to={`/anime-info/${entry.mal_id}`}
+                target="_blank"
+              >
+                <img
+                  src={entry.images.webp.image_url}
+                  alt={entry?.title}
+                  loading={index < 6 ? "eager" : "lazy"}
+                  width="150"
+                  height="200"
+                />
               </Link>
               <Link to={`/anime-info/${entry.mal_id}`} target="_blank">
                 <p>{entry.title}</p>
@@ -66,6 +76,16 @@ export default function AnimeRecommendations() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.top}>
+        <h1 className="main-header">RECOMMENDATIONS</h1>
+        <p>
+          Scroll down
+        </p>
+          <Icon
+            icon="material-symbols:keyboard-double-arrow-down"
+            className={styles.downArrow}
+          />
+      </div>
       <InfiniteScroll
         dataLength={dataSource.length}
         next={getMoreData}
@@ -73,10 +93,8 @@ export default function AnimeRecommendations() {
         loader={<Icon icon="svg-spinners:bars-scale" className="loading" />}
         endMessage={<p>No more data</p>}
       >
-        <h1>RECOMMENDATIONS</h1>
-        <p>Scroll down to find some interesting anime</p>
         {dataSource.map((item, index) => {
-          return <Recommendation index={index} key={index} data={item} />;
+          return <Recommendation key={index} data={item} />;
         })}
       </InfiniteScroll>
     </div>

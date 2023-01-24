@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 export default function NotFound() {
   const container = {
@@ -9,16 +9,21 @@ export default function NotFound() {
     fontSize: "3.5em",
     display: "grid",
     placeContent: "center",
-    textAlign: "center"
-  }
+    textAlign: "center",
+  };
 
   return (
     <section style={container}>
       <div>404</div>
       <div>Page Not Found :-(</div>
-      <p style={{fontSize: ".3em"}}>
-        <Link to="/"> &lt;- Go back to home page</Link>
+      <p style={{ fontSize: ".3em" }}>
+        <Link to="/">
+          {" "}
+          <span style={{ textDecoration: "underline" }}>
+            &lt;- Go back to home page
+          </span>
+        </Link>
       </p>
     </section>
-  )
+  );
 }

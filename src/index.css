@@ -3,9 +3,8 @@
 }
 
 ::selection {
-  /* background-color: #0a707e; */
-  background-color: bisque;
-  color: black;
+  background-color: #666;
+  color: white;
 }
 
 *,
@@ -98,7 +97,6 @@ a {
 /* TODO: Refactor all styles */
 
 footer {
-  border-top: 1px solid #333;
   /* margin-top: 10rem; */
   display: grid;
   place-content: center;
@@ -165,8 +163,26 @@ footer {
   margin-top: .7rem;
 }
 
+.main-header {
+  font-family: "Space Mono", monospace;
+  background: #181818;
+  color: white;
+  text-align: center;
+  font-size: 3em;
+  width: max-content;
+  margin-inline: auto;
+  padding: 1rem;
+  /* border-radius: 1rem; */
+  margin-top: 3rem;
+}
+
 @media (width <= 640px) {
   .loading-screen {
     flex-direction: column;
+  }
+
+  .main-header {
+    font-size: 2em;
+    margin-top: 2rem;
   }
 }

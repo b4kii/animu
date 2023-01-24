@@ -98,7 +98,7 @@ function Dropdown({ children, data }) {
           data.map((item) => {
             return (
               <p key={item.name}>
-                <a href={item.url}>{item.name}</a>
+                <a href={item.url} target="_blank" rel="noreferrer">{item.name}</a>
               </p>
             );
           })
@@ -129,7 +129,6 @@ function RightSection({ data }) {
 
 export default function AnimeInfo() {
   const data = useLoaderData();
-
   return (
     <>
       <main className={styles.mainContainer}>

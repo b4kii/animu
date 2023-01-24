@@ -2,13 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3.5rem;
+  padding-top: 3rem;
   min-height: 100vh;
 }
 
 .filters {
-  padding-top: 1rem;
-  padding-bottom: 3rem;
+  margin: 4rem 0;
 }
 
 .filter {
@@ -19,15 +18,8 @@
 }
 
 .result {
-  width: 70%;
-  padding-top: 6rem;
+  width: 70vw;
   min-height: 100vh;
-}
-
-.ranking h1 {
-  text-align: center;
-  padding-bottom: 1rem;
-  font-size: 3em;
 }
 
 .details {
@@ -88,11 +80,9 @@
   cursor: pointer;
   transition: all 300ms;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-  width: max-content;
 }
 
 .btn:hover {
-  --x: 100%;
   transform: rotate(-5deg);
 }
 
@@ -119,6 +109,10 @@
 }
 
 @media (width <= 640px) {
+  .filters {
+    margin-top: 2rem;
+  }
+
   .filter {
     gap: 0.5rem;
   }
@@ -130,6 +124,8 @@
   .details {
     font-size: .8em;
     border-radius: 0;
+    gap: 1rem;
+    padding: .5rem;
   }
 
   .result h1 {

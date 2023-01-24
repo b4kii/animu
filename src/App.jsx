@@ -9,15 +9,11 @@ import {
   ScrollRestoration,
 } from "react-router-dom";
 
-// import AnimeRanking from "./pages/AnimeRanking";
-// import Home from "./pages/Home";
-// import AnimeInfo from "./pages/AnimeInfo";
-// import NotFound from "./pages/NotFound/NotFound";
-// import AnimeRecommendations from "./pages/AnimeRecommendations";
 
 import Footer from "./components/Footer";
 import AnimeSearch from "./components/AnimeSearch";
 import ErrorPage from "./pages/ErrorPage";
+
 
 import { animeInfoLoader } from "./pages/AnimeInfo";
 import { animeRankingLoader } from "./pages/AnimeRanking/AnimeRanking";
@@ -25,6 +21,12 @@ import { homeDataLoader } from "./pages/Home/Home";
 import { recommendationsDataLoader } from "./pages/AnimeRecommendations/AnimeRecommendations";
 import ScrollTopButton from "./components/ScrollTopButton";
 import LoadingScreen from "./components/LoadingScreen";
+
+// import AnimeRanking from "./pages/AnimeRanking";
+// import Home from "./pages/Home";
+// import AnimeInfo from "./pages/AnimeInfo";
+// import NotFound from "./pages/NotFound/NotFound";
+// import AnimeRecommendations from "./pages/AnimeRecommendations";
 
 // const Home = lazy(() => import("./pages/Home"));
 // const AnimeRanking = lazy(() => import("./pages/AnimeRanking"));
@@ -88,10 +90,6 @@ const router = createHashRouter(
   )
 );
 
-export default function App() {
-  return <RouterProvider router={router} />;
-}
-
 function Root() {
   return (
     <>
@@ -104,4 +102,8 @@ function Root() {
       <Footer />
     </>
   );
+}
+
+export default function App() {
+  return <RouterProvider router={router} />;
 }
