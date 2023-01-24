@@ -1,11 +1,10 @@
-import { useLoaderData, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useLoaderData } from "react-router-dom";
+import { useState } from "react";
 import axios from "axios";
 import styles from "./AnimeInfo.module.css";
 
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { displayData, displayArrayData } from "../../utils/helpers";
-
+import { displayData } from "../../utils/helpers";
 
 function Video({ embedId }) {
   return (
@@ -21,7 +20,7 @@ function Video({ embedId }) {
   );
 }
 
-function ImageSection({ data }) {
+function LeftSection({ data }) {
   return (
     <div className={styles.infoLeft}>
       <div className={styles.imageWrapper}>
@@ -34,125 +33,95 @@ function ImageSection({ data }) {
         </div>
       </div>
       <div className={styles.detailsWrapper}>
-        <div className={styles.animeBackground}>{displayData(data.background)}</div>
-        <div className={`${styles.detail}`}><h4>Aired:</h4>{displayData(data.aired.string)}</div>
-        <div className={`${styles.detail}`}><h4>Duration:</h4>{displayData(data.duration)}</div>
-        <div className={`${styles.detail}`}><h4>Episodes:</h4>{displayData(data.episodes)}</div>
-        <div className={`${styles.detail}`}><h4>Score:</h4>{displayData(data.score)}</div>
-        <div className={`${styles.detail}`}><h4>Status:</h4>{displayData(data.status)}</div>
-        <div className={`${styles.detail}`}><h4>Rating:</h4>{displayData(data.rating)}</div>
+        <div className={styles.animeBackground}>
+          {displayData(data.background)}
+        </div>
+        <div className={`${styles.detail}`}>
+          <h4>Aired:</h4>
+          {displayData(data.aired.string)}
+        </div>
+        <div className={`${styles.detail}`}>
+          <h4>Duration:</h4>
+          {displayData(data.duration)}
+        </div>
+        <div className={`${styles.detail}`}>
+          <h4>Episodes:</h4>
+          {displayData(data.episodes)}
+        </div>
+        <div className={`${styles.detail}`}>
+          <h4>Score:</h4>
+          {displayData(data.score)}
+        </div>
+        <div className={`${styles.detail}`}>
+          <h4>Status:</h4>
+          {displayData(data.status)}
+        </div>
+        <div className={`${styles.detail}`}>
+          <h4>Rating:</h4>
+          {displayData(data.rating)}
+        </div>
       </div>
-    </div> 
+    </div>
   );
 }
 
-function InfoSection({ data }) {
-  const [active, setActive] = useState([
-    {
-      item: "1",
-      isActive: false,
-    },
-    {
-      item: "2",
-      isActive: false,
-    },
-  ]);
+function Dropdown({ children, data }) {
+  const [active, setActive] = useState(false);
 
-  const getState = (item) => {
-    let result;
-    active.forEach((state) => {
-      if (state.item === item) {
-        result = state.isActive;
-      }
-    });
-    return result;
-  };
+  return (
+    <>
+      <div className={styles.dropdownHeader}>
+        <h2
+          onClick={() => {
+            setActive((prev) => !prev);
+          }}
+        >
+          {children}
+          <KeyboardArrowDownIcon
+            sx={{
+              rotate: active ? "540deg" : "0",
+              transition: "200ms ease-in-out",
+              fontSize: "2rem",
+            }}
+          />
+        </h2>
+      </div>
+      <div
+        className={styles.dropdownContent}
+        style={{
+          maxHeight: active ? "500px" : "0",
+          overflow: "hidden",
+          transition: "all 200ms ease-in-out",
+        }}
+      >
+        {data.length !== 0 ? (
+          data.map((item) => {
+            return (
+              <p key={item.name}>
+                <a href={item.url}>{item.name}</a>
+              </p>
+            );
+          })
+        ) : (
+          <p>No data provided</p>
+        )}
+      </div>
+    </>
+  );
+}
 
-  const handleClick = (event) => {
-    let dataInfo = event.target.getAttribute("data-item");
-    const updateState = active.map((state) => {
-      if (state.item === dataInfo) {
-        return {
-          ...state,
-          isActive: !state.isActive,
-        };
-      }
-      return state;
-    });
-
-    setActive(updateState);
-  };
-
-  const { animeId } = useParams();
-
-  useEffect(() => {
-    setActive(prev => {
-      return prev.map((state) => {
-        return {
-          ...state,
-          isActive: false
-        }
-      })
-    })
-  }, [animeId]);
-
+function RightSection({ data }) {
   return (
     <div className={styles.infoRight}>
       <div className={styles.infoContainer}>
         <div className={styles.titles}>
-          <h3 className={styles.titleNormal}>{
-            data.title ? data.title : data.title_english
-          }</h3>
+          <h3 className={styles.titleNormal}>
+            {data.title ? data.title : data.title_english}
+          </h3>
         </div>
         <div className={styles.description}>{displayData(data.synopsis)}</div>
-        <div className={styles.dropdown}>
-          <h2 onClick={handleClick} data-item="1">
-            Streaming platforms
-            <KeyboardArrowDownIcon
-              sx={{
-                rotate: getState("1") ? "540deg" : "0",
-                transition: "200ms ease-in-out",
-                fontSize: "2rem",
-              }}
-            />
-          </h2>
-        </div>
-        <div
-          className={styles.streaming}
-          style={{
-            maxHeight: getState("1") ? "500px" : "0",
-            overflow: "hidden",
-            transition: "all 200ms ease-in-out",
-          }}
-        >
-          {
-            displayArrayData(data.streaming, {name: "name", url: "url"})
-          }
-        </div>
-        <div className={styles.dropdown}>
-          <h2 onClick={handleClick} data-item="2">
-            Producers
-            <KeyboardArrowDownIcon
-              sx={{
-                rotate: getState("2") ? "540deg" : "0",
-                transition: "all 200ms ease-in-out",
-                fontSize: "2rem",
-              }}
-            />
-          </h2>
-        </div>
-        <div
-          className={styles.producers}
-          style={{
-            maxHeight: getState("2") ? "500px" : "0",
-            overflow: "hidden",
-            transition: "all 200ms ease-in-out",
-          }}
-        >
-          {
-            displayArrayData(data.producers, {name: "name", url: null})
-          }
-        </div>
+        <Dropdown data={data.streaming}>Streaming platforms</Dropdown>
+        <Dropdown data={data.producers}>Producers</Dropdown>
       </div>
     </div>
   );
@@ -165,10 +134,14 @@ export default function AnimeInfo() {
     <>
       <main className={styles.mainContainer}>
         <div className={styles.top}>
-          <ImageSection data={data} />
-          <InfoSection data={data} />
+          <LeftSection data={data} />
+          <RightSection data={data} />
         </div>
-        <Video embedId={data.trailer.youtube_id ? data.trailer.youtube_id : "dQw4w9WgXcQ"} />
+        <Video
+          embedId={
+            data.trailer.youtube_id ? data.trailer.youtube_id : "dQw4w9WgXcQ"
+          }
+        />
       </main>
     </>
   );
@@ -184,5 +157,5 @@ export const animeInfoLoader = async ({ params }) => {
     console.log(error);
   }
 
-  return null
+  return null;
 };
