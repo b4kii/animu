@@ -3,7 +3,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
   background-color: #181818;
   padding: .55rem;
   z-index: 3;
@@ -168,7 +167,7 @@
 
 @media (width >= 768px) {
   .searchBar {
-    width: 20rem;
+    width: 15rem;
   }
   .sidebar.open {
     width: 300px;

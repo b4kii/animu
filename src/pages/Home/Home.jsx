@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <main className={styles.container}>
       <div>
-        <h1 className="main-header">HOME PAGE</h1>
+        {/* <h1 className="main-header">HOME PAGE</h1> */}
         <p style={{ fontSize: "2em" }}>Hello there!</p>
         <p>Search for information about your favourite anime.</p>
         <p>Check anime ranking.</p>

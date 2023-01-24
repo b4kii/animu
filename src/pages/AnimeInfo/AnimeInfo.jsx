@@ -136,11 +136,11 @@ export default function AnimeInfo() {
           <LeftSection data={data} />
           <RightSection data={data} />
         </div>
-        <Video
+        {/* <Video
           embedId={
             data.trailer.youtube_id ? data.trailer.youtube_id : "dQw4w9WgXcQ"
           }
-        />
+        /> */}
       </main>
     </>
   );
