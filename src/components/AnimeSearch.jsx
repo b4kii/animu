@@ -40,6 +40,8 @@ function DropdownSearch({ setQuery, setData, searchInputRef }) {
   const { data } = useContext(AnimeDataContext);
   const resultSearchRef = useRef(null);
 
+  console.log(data);
+
   useEffect(() => {
     if (data.animeData.length !== 0) {
       const handleClick = (event) => {
@@ -56,21 +58,21 @@ function DropdownSearch({ setQuery, setData, searchInputRef }) {
         document.removeEventListener("click", handleClick);
       };
     }
-  });
+  }, []);
 
   return (
     <section className={styles.resultSearch} ref={resultSearchRef}>
-      {data.animeData?.length !== 0 && data.fetched === true ? (
+      {data.animeData?.length !== 0 ? (
         <ul className={styles.result}>
           {data.animeData?.map((item, index) => (
             <DropdownListRow item={item} setData={setData} key={item.mal_id} />
           ))}
         </ul>
-      ) : data.animeData?.length === 0 && data.fetched === true ? (
+      ) : data.animeData?.length === 0 ? (
         <div className={styles.resultSearch}>
-          <h1 className={styles.noResult}>No results found</h1>
+          <h1 className={styles.noResult}>No results found..</h1>
         </div>
-      ) : null}
+      ) : null }
     </section>
   );
 }
@@ -83,6 +85,7 @@ export default function AnimeSearch() {
     fetched: false,
   });
 
+
   return (
     <AnimeDataContext.Provider value={{ data, setData }}>
       <Navigation
@@ -90,13 +93,13 @@ export default function AnimeSearch() {
         setQuery={setQuery}
         searchInputRef={searchInputRef}
       />
-      {data.animeData.length !== 0 ? (
+      {data.fetched === true ? (
         <DropdownSearch
           setQuery={setQuery}
           setData={setData}
           searchInputRef={searchInputRef}
         />
-      ) : null}
+       ) : null}
     </AnimeDataContext.Provider>
   );
 }
