@@ -6,7 +6,7 @@ export const displayData = (data) => {
 
 export const displayArrayData = (data, key) => {
   if (data.length === 0) {
-    return <p>No data provided</p>;
+    return <p>No data</p>;
   }
 
   return data.map((item, index) => {

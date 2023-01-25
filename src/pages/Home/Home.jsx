@@ -31,11 +31,19 @@ function RandomAnime({ data }) {
 export default function Home() {
   const [data, error] = useLoaderData();
 
+  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+      // dev code
+      console.log("dev mode");
+  } else {
+      // production code
+      console.log("production mode");
+  }
+
   return (
     <main className={styles.container}>
       <div>
         {/* <h1 className="main-header">HOME PAGE</h1> */}
-        <p style={{ fontSize: "2em" }}>Hello there!</p>
+        <p style={{ fontSize: "2em", fontWeight: "bold", marginTop: "3rem" }}>Hello there!</p>
         <p>Search for information about your favourite anime.</p>
         <p>Check anime ranking.</p>
         <p>Look into interesting recommendations.</p>
