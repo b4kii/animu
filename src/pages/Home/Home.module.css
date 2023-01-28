@@ -2,34 +2,35 @@
   min-height: 100vh;
   width: 70%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-top: 3rem;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 1rem;
   overflow-x: hidden;
+  gap: 2rem;
 }
 
-.container h1 {
-  /* font-size: 4em; */
-  /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-  /* margin-top: 1rem; */
-}
-
-.container {
-  margin-left: 3rem;
+h1 {
+  padding-top: 4rem;
 }
 
 .randomAnime {
+  cursor: pointer;
   padding: 1rem;
   border: 2px solid black;
   background-color: #222;
   color: white;
+  height: max-content;
 }
 
 .suggestion {
-  width: 30vw;
   opacity: 1;
   transition: 200ms ease-in-out;
   animation: show 1s ease-in-out;
+  text-align: center
+}
+
+.suggestion img { 
+  margin-inline: auto;
 }
 
 .randomAnime > p {
@@ -46,11 +47,49 @@
   font-size: .8em;
 }
 
+.greeting {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 3rem 0;
+  width: max-content;
+  border-bottom: 2px solid black;
+}
+
+.note {
+  font-size: .9em;
+  transform: translateX(-35rem);
+  animation: appear 1s ease-in-out forwards;
+}
+
+.delay2 {
+  animation-delay: 1s;
+}
+
+.delay3 {
+  animation-delay: 2s;
+}
+
+@keyframes appear {
+  100% {
+    transform: translateX(0);
+  }
+}
+
 @keyframes  show {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@media (width < 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .randomAnime {
+    width: 100%;
   }
 }

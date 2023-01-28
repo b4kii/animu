@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import styles from "./Home.module.css";
 import axios from "axios";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 import { displayData } from "../../utils/helpers";
 import { motion } from "framer-motion";
@@ -9,8 +9,13 @@ import { motion } from "framer-motion";
 const url = "https://api.jikan.moe/v4/random/anime";
 
 function RandomAnime({ data }) {
+  const navigate = useNavigate();
+
   return (
-    <div className={styles.randomAnime}>
+    <div
+      className={styles.randomAnime}
+      onClick={() => navigate(`/anime-info/${data.mal_id}`)}
+    >
       <p>Check this out</p>
       <div className={`${styles.suggestion}`}>
         <p className={styles.title}>{displayData(data.title)}</p>
@@ -31,25 +36,25 @@ function RandomAnime({ data }) {
 export default function Home() {
   const [data, error] = useLoaderData();
 
-  if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
-      // dev code
-      console.log("dev mode");
-  } else {
-      // production code
-      console.log("production mode");
-  }
-
   return (
-    <main className={styles.container}>
-      <div>
-        {/* <h1 className="main-header">HOME PAGE</h1> */}
-        <p style={{ fontSize: "2em", fontWeight: "bold", marginTop: "3rem" }}>Hello there!</p>
-        <p>Search for information about your favourite anime.</p>
-        <p>Check anime ranking.</p>
-        <p>Look into interesting recommendations.</p>
-      </div>
-      <RandomAnime data={data} />
-    </main>
+    <>
+      <h1>More content soon...</h1>
+      <main className={styles.container}>
+        <div>
+          <p className={styles.greeting}>Hello there!</p>
+          <p className={`${styles.note} ${styles.delay1}`}>
+            Search for information about your favourite anime.
+          </p>
+          <p className={`${styles.note} ${styles.delay2}`}>
+            Check anime ranking.
+          </p>
+          <p className={`${styles.note} ${styles.delay3}`}>
+            Look into interesting recommendations.
+          </p>
+        </div>
+        <RandomAnime data={data} />
+      </main>
+    </>
   );
 }
 

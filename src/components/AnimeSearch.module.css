@@ -15,7 +15,7 @@ input[type="search"]::-webkit-search-cancel-button {
   overflow-y: scroll;
   position: fixed;
   z-index: 2;
-  top: 3.4rem;
+  top: 4rem;
   width: clamp(10px, 600px, 97%);
 }
 

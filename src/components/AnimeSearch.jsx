@@ -40,8 +40,6 @@ function DropdownSearch({ setQuery, setData, searchInputRef }) {
   const { data } = useContext(AnimeDataContext);
   const resultSearchRef = useRef(null);
 
-  console.log(data);
-
   useEffect(() => {
     if (data.animeData.length !== 0) {
       const handleClick = (event) => {

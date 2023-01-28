@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./AnimeInfo.module.css";
 
@@ -68,6 +68,10 @@ function LeftSection({ data }) {
 function Dropdown({ children, data }) {
   const [active, setActive] = useState(false);
 
+  useEffect(() => {
+    setActive(false);
+  }, [data])
+
   return (
     <>
       <div className={styles.dropdownHeader}>
@@ -103,7 +107,7 @@ function Dropdown({ children, data }) {
             );
           })
         ) : (
-          <p>No data provided</p>
+          <p>No data</p>
         )}
       </div>
     </>

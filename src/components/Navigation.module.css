@@ -4,19 +4,19 @@
   justify-content: center;
   align-items: center;
   background-color: #181818;
-  padding: .55rem;
   z-index: 3;
   position: fixed;
   left: 0;
   top: 0;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  height: 4rem;
 }
 
 .logo {
-  position: absolute;
+  position: fixed;
   left: 1rem;
   font-size: 2rem;
-  font-family: 'Leckerli One', cursive;
+  font-family: "Leckerli One", cursive;
 }
 
 .letters {
@@ -25,24 +25,26 @@
 }
 
 .letter {
+  cursor: pointer;
   display: block;
   font-weight: bold;
   letter-spacing: 10px;
   color: white;
-}
-
-.letter {
   animation: jello 2s infinite;
 }
 
+.letter:hover {
+  color: #adacac;
+}
+
 .searchBar {
-  width: 10rem;
   display: flex;
   align-items: center;
   border-radius: 0.2em;
   background-color: white;
   transition: 100ms ease-in-out;
   height: 2.3rem;
+  width: 10rem;
 }
 
 .searchBar svg {
@@ -70,7 +72,7 @@
 .menuButton {
   position: fixed;
   right: 1rem;
-  top: .85rem;
+  top: 1rem;
   z-index: 10;
   cursor: pointer;
 }
@@ -143,6 +145,7 @@
   list-style: none;
   margin: 0 auto;
   color: white;
+  padding-top: 1rem;
 }
 
 .sidebar li {
@@ -150,7 +153,10 @@
 }
 
 .sidebar li:hover {
-  background-color: #333333;
+  /* background-color: #333333; */
+  /* color: #adacac; */
+  color: black;
+  background-color: grey;
 }
 
 .sidebar a {
@@ -161,17 +167,61 @@
   padding: 1em 0;
 }
 
+.links {
+  display: none;
+}
+
+.navbar ul a {
+  color: white;
+}
+
+.navbar ul a:hover {
+  color: #adacac;
+}
+
 .sidebar svg {
   font-size: 4em;
 }
 
-@media (width >= 768px) {
+@media (width >= 1024px) {
   .searchBar {
     width: 15rem;
+    margin-inline: auto;
   }
-  .sidebar.open {
-    width: 300px;
+
+  .sidebar {
+    display: none;
   }
+
+  .menuButton {
+    display: none;
+  }
+
+  .logo {
+    margin-left: 1rem;
+    position: static;
+    flex-grow: 1;
+    flex-shrink: 2;
+    width: 100%;
+  }
+
+  .searchBarWrapper {
+    flex-grow: 2;
+    flex-shrink: 1;
+    width: 100%;
+  }
+
+  .links {
+    margin-right: 1rem;
+    width: 100%;
+    flex-grow: 1;
+    flex-shrink: 2;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 1rem;
+  }
+
 }
 
 @keyframes jello {
@@ -191,13 +241,13 @@
     transform: skewX(-1.5deg) skewY(-1.5deg);
   }
   60% {
-    transform: skewX(.7deg) skewY(.7deg);
+    transform: skewX(0.7deg) skewY(0.7deg);
   }
   70% {
-    transform: skewX(-.3deg) skewY(-.3deg);
+    transform: skewX(-0.3deg) skewY(-0.3deg);
   }
   80% {
-    transform: skewX(.15deg) skewY(.15deg);
+    transform: skewX(0.15deg) skewY(0.15deg);
   }
   90% {
     transform: none;

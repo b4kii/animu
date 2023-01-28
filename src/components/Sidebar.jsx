@@ -5,27 +5,28 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./Navigation.module.css";
 
 import MenuButton from "./MenuButton";
+import ListLinkItem from "./ListLinkItem";
 
 export default function Sidebar({ setQuery }) {
   const sidebarRef = useRef(null);
   const hamburgerRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
 
-  useEffect(() => {
-    const handler = (event) => {
-      if (
-        !sidebarRef.current.contains(event.target) &&
-        event.target !== hamburgerRef.current
-      ) {
-        setIsActive(false);
-      }
-    };
-    document.addEventListener("click", handler);
+  // useEffect(() => {
+  //   const handler = (event) => {
+  //     if (
+  //       !sidebarRef.current.contains(event.target) &&
+  //       event.target !== hamburgerRef.current
+  //     ) {
+  //       setIsActive(false);
+  //     }
+  //   };
+  //   document.addEventListener("click", handler);
 
-    return () => {
-      document.removeEventListener("click", handler);
-    };
-  });
+  //   return () => {
+  //     document.removeEventListener("click", handler);
+  //   };
+  // });
 
   return (
     <>
@@ -41,39 +42,24 @@ export default function Sidebar({ setQuery }) {
         ref={sidebarRef}
       >
         <ul>
-          <li>
-            <Link
-              to="/anime-ranking"
-              onClick={() => {
-                setQuery("");
-                setIsActive(false);
-              }}
-            >
-              Ranking
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/anime-recommendations"
-              onClick={() => {
-                setQuery("");
-                setIsActive(false);
-              }}
-            >
-              Recommendations
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/"
-              onClick={() => {
-                setQuery("");
-                setIsActive(false);
-              }}
-            >
-              Home
-            </Link>
-          </li>
+          <ListLinkItem
+            to={"/anime-ranking"}
+            click={() => {
+              setIsActive(false)
+              setQuery("");
+            }}
+          >
+            Ranking
+          </ListLinkItem>
+          <ListLinkItem
+            to={"/anime-recommendations"}
+            click={() => {
+              setIsActive(false)
+              setQuery("");
+            }}
+          >
+            Recommendations
+          </ListLinkItem>
         </ul>
       </section>
     </>

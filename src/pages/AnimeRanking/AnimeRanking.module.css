@@ -101,11 +101,13 @@
 }
 
 .typeActive {
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 
 .tbdActive {
-  background-color: whitesmoke;
+  background-color: rgb(59, 31, 31);
+  color: white;
 }
 
 @media (width <= 640px) {

@@ -8,6 +8,8 @@ import { AnimeDataContext } from "../contexts/AnimeDataContext";
 import Sidebar from "./Sidebar";
 
 import styles from "./Navigation.module.css";
+import { Link, useNavigate } from "react-router-dom";
+import ListLinkItem from "./ListLinkItem";
 
 function SearchBar({ handleInputChange, query, searchInputRef }) {
   return (
@@ -42,6 +44,7 @@ function SearchBar({ handleInputChange, query, searchInputRef }) {
 
 export default function Navigation({ query, setQuery, searchInputRef }) {
   const { setData } = useContext(AnimeDataContext);
+  const navigate = useNavigate();
 
   const debouncedSearched = useDebounce(query, 600);
 
@@ -81,18 +84,43 @@ export default function Navigation({ query, setQuery, searchInputRef }) {
       <nav className={styles.navbar}>
         <div className={styles.logo}>
           <div className={styles.letters}>
-            <span className={styles.letter}>A</span>
+            <span
+              className={styles.letter}
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              A
+            </span>
           </div>
         </div>
+        <div className={styles.searchBarWrapper}>
         <SearchBar
           handleInputChange={handleInputChange}
           query={query}
           searchInputRef={searchInputRef}
         />
+        </div>
+        <ul className={styles.links}>
+          <ListLinkItem
+            to={"/anime-ranking"}
+            click={() => {
+              setQuery("");
+            }}
+          >
+            Ranking
+          </ListLinkItem>
+          <ListLinkItem
+            to={"/anime-recommendations"}
+            click={() => {
+              setQuery("");
+            }}
+          >
+            Recommendations
+          </ListLinkItem>
+        </ul>
       </nav>
-      <Sidebar
-        setQuery={setQuery}
-      />
+      <Sidebar setQuery={setQuery} />
     </>
   );
 }
