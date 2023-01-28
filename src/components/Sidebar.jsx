@@ -12,21 +12,21 @@ export default function Sidebar({ setQuery }) {
   const hamburgerRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
 
-  // useEffect(() => {
-  //   const handler = (event) => {
-  //     if (
-  //       !sidebarRef.current.contains(event.target) &&
-  //       event.target !== hamburgerRef.current
-  //     ) {
-  //       setIsActive(false);
-  //     }
-  //   };
-  //   document.addEventListener("click", handler);
+  useEffect(() => {
+    const handler = (event) => {
+      if (
+        !sidebarRef.current.contains(event.target) &&
+        event.target !== hamburgerRef.current
+      ) {
+        setIsActive(false);
+      }
+    };
+    document.addEventListener("click", handler);
 
-  //   return () => {
-  //     document.removeEventListener("click", handler);
-  //   };
-  // });
+    return () => {
+      document.removeEventListener("click", handler);
+    };
+  });
 
   return (
     <>
