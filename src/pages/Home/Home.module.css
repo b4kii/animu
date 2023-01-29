@@ -87,6 +87,8 @@ h1 {
 @media (width < 768px) {
   .container {
     width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   .randomAnime {
