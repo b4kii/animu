@@ -11,7 +11,9 @@ import styles from "./Navigation.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import ListLinkItem from "./ListLinkItem";
 
-function SearchBar({ handleInputChange, query, searchInputRef }) {
+function SearchBar({ setQuery, query, searchInputRef }) {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.searchBar}>
       <Icon
@@ -20,7 +22,7 @@ function SearchBar({ handleInputChange, query, searchInputRef }) {
           fontSize: "1.6em",
           pointerEvents: "none",
           position: "absolute",
-          marginLeft: ".3em",
+          marginLeft: ".2em",
         }}
       />
       <input
@@ -30,10 +32,12 @@ function SearchBar({ handleInputChange, query, searchInputRef }) {
         type="search"
         placeholder="Search..."
         value={query}
-        onChange={handleInputChange}
+        onChange={(event) => setQuery(event.target.value)}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
-            console.log("enter");
+            query !== "" && navigate(`/search-results/${event.target.value}`);
+            searchInputRef.current.blur();
+            setQuery("");
           }
         }}
         autoComplete="off"
@@ -50,10 +54,6 @@ export default function Navigation({ query, setQuery, searchInputRef }) {
 
   const url = (phrase, limit) =>
     `https://api.jikan.moe/v4/anime?q=${phrase}&limit=${limit}`;
-
-  const handleInputChange = (event) => {
-    setQuery(event.target.value);
-  };
 
   useEffect(() => {
     try {
@@ -96,7 +96,7 @@ export default function Navigation({ query, setQuery, searchInputRef }) {
         </div>
         <div className={styles.searchBarWrapper}>
         <SearchBar
-          handleInputChange={handleInputChange}
+          setQuery={setQuery}
           query={query}
           searchInputRef={searchInputRef}
         />
