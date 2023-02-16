@@ -35,7 +35,7 @@ function SearchBar({ setQuery, query, searchInputRef }) {
         onChange={(event) => setQuery(event.target.value)}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
-            query !== "" && navigate(`/search-results/${event.target.value}`);
+            query !== "" && navigate(`/search-results/${event.target.value}/1`);
             searchInputRef.current.blur();
             setQuery("");
           }

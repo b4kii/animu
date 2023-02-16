@@ -142,7 +142,7 @@ export default function AnimeInfo() {
         </div>
         <Video
           embedId={
-            data.trailer.youtube_id ? data.trailer.youtube_id : "dQw4w9WgXcQ"
+            data?.trailer?.youtube_id ? data?.trailer?.youtube_id : "dQw4w9WgXcQ"
           }
         />
       </main>

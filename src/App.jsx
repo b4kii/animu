@@ -13,15 +13,15 @@ import Footer from "./components/Footer";
 import AnimeSearch from "./components/AnimeSearch";
 import ErrorPage from "./pages/ErrorPage";
 
+// loaders
 import { animeInfoLoader } from "./pages/AnimeInfo";
 import { animeRankingLoader } from "./pages/AnimeRanking/AnimeRanking";
 import { homeDataLoader } from "./pages/Home/Home";
 import { recommendationsDataLoader } from "./pages/AnimeRecommendations/AnimeRecommendations";
+import { searchResultsDataLoader } from "./pages/SearchResults/SearchResults";
+
 import ScrollTopButton from "./components/ScrollTopButton";
 import LoadingScreen from "./components/LoadingScreen";
-
-import { AnimeDataContext } from "./contexts/AnimeDataContext";
-import { useContext, useState } from "react";
 
 const Home = lazy(() => {
   return Promise.all([
@@ -56,7 +56,7 @@ const AnimeRecommendations = lazy(() => {
 
 const SearchResults = lazy(() => {
   return Promise.all([
-    import("./pages/SearchResults"),
+    import("./pages/SearchResults/SearchResults"),
     new Promise((resolve) => setTimeout(resolve, 500)),
   ]).then(([moduleExports]) => moduleExports);
 });
@@ -80,28 +80,25 @@ const router = createHashRouter(
         loader={animeInfoLoader}
         element={<AnimeInfo />}
       />
-      <Route path="search-results/:searchKeyword" element={<SearchResults />} />
+      <Route
+        path="search-results/:searchKeyword/:page"
+        element={<SearchResults />}
+        loader={searchResultsDataLoader}
+      />
       <Route path="*" element={<NotFound />} />
     </Route>
   )
 );
 
 function Root() {
-  const [data, setData] = useState({
-    animeData: [],
-    fetched: false,
-  });
-
   return (
     <>
       <ScrollRestoration />
-      <AnimeDataContext.Provider value={{ data, setData }}>
-        <AnimeSearch />
-        <Suspense fallback={<LoadingScreen />}>
-          <Outlet />
-        </Suspense>
-        <ScrollTopButton />
-      </AnimeDataContext.Provider>
+      <AnimeSearch />
+      <Suspense fallback={<LoadingScreen />}>
+        <Outlet />
+      </Suspense>
+      <ScrollTopButton />
       <Footer />
     </>
   );

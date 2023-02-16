@@ -28,7 +28,7 @@ function RankingResults({ data }) {
             key={anime.mal_id}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{
               type: "spring",
               stiffness: 50,

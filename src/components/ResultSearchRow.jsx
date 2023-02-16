@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import styles from "./AnimeSearch.module.css";
+// import styles from "./AnimeSearch.module.css";
 
-export default function ResultSearchRow({ item, setData }) {
+export default function ResultSearchRow({ item, setData, styles, showGenres}) {
   return (
-    <li>
+    <li key={item.mal_id}>
       <Link
         to={`/anime-info/${item.mal_id}`}
         onClick={() => {
@@ -27,6 +27,18 @@ export default function ResultSearchRow({ item, setData }) {
           </div>
         </div>
       </Link>
+      {
+        showGenres &&
+        <div className={styles.genres}>
+          {item.genres.length !== 0 ? (
+            item.genres.map((genre) => {
+              return <p key={genre.mal_id}>{genre.name}</p>;
+            })
+          ) : (
+            <p>No data</p>
+          )}
+        </div>
+      }
     </li>
   );
 }

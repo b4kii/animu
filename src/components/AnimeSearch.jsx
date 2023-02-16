@@ -32,7 +32,7 @@ function DropdownSearch({ setQuery, setData, searchInputRef }) {
       {data.animeData?.length !== 0 ? (
         <ul className={styles.result}>
           {data.animeData.slice(0, 10)?.map((item, index) => (
-            <ResultSearchRow item={item} setData={setData} key={item.mal_id} />
+            <ResultSearchRow item={item} setData={setData} key={item.mal_id} styles={styles} showGenres={false}/>
           ))}
         </ul>
       ) : data.animeData?.length === 0 ? (
@@ -47,16 +47,14 @@ function DropdownSearch({ setQuery, setData, searchInputRef }) {
 export default function AnimeSearch() {
   const searchInputRef = useRef(null);
   const [query, setQuery] = useState("");
-  // const [data, setData] = useState({
-  //   animeData: [],
-  //   fetched: false,
-  // });
-  const {data, setData} = useContext(AnimeDataContext);
-  console.log(data);
+  const [data, setData] = useState({
+    animeData: [],
+    fetched: false,
+  });
 
   return (
     <>
-    {/* <AnimeDataContext.Provider value={{ data, setData }}> */}
+    <AnimeDataContext.Provider value={{ data, setData }}>
       <Navigation
         query={query}
         setQuery={setQuery}
@@ -69,7 +67,7 @@ export default function AnimeSearch() {
           searchInputRef={searchInputRef}
         />
       ) : null}
-    {/* </AnimeDataContext.Provider> */}
+    </AnimeDataContext.Provider>
     </>
   );
 }
