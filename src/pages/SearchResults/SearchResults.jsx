@@ -21,7 +21,6 @@ function PageCount({ pageNumbers, setCurrentPage, currentPage, keyword}) {
         return (
           <button
             key={number}
-            // className={styles.number}
             className={`${styles.number} ${number === currentPage && styles.activePageNumber}`}
             onClick={() => {
               setCurrentPage(number)
@@ -48,13 +47,12 @@ export default function SearchResults() {
 
     const fetchData = async () => {
       const res = await axios.get(url);
-      console.log("res data", res.data);
       setResultData(res.data.data);
     }
 
     fetchData();
 
-  }, [currentPage])
+  }, [url])
 
   return (
     <div className={styles.container}>

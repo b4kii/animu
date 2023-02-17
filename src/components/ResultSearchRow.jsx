@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 // import styles from "./AnimeSearch.module.css";
 
-export default function ResultSearchRow({ item, setData, styles, showGenres}) {
+export default function ResultSearchRow({ item, setData, styles, showGenres }) {
   return (
     <li key={item.mal_id}>
       <Link
         to={`/anime-info/${item.mal_id}`}
         onClick={() => {
-          setData({ animeData: [], fetched: false });
+          !showGenres && setData({ animeData: [], fetched: false });
         }}
       >
         <div className={styles.resultRow}>
@@ -26,19 +26,18 @@ export default function ResultSearchRow({ item, setData, styles, showGenres}) {
             />
           </div>
         </div>
+        {showGenres && (
+          <div className={styles.genres}>
+            {item.genres.length !== 0 ? (
+              item.genres.map((genre) => {
+                return <p key={genre.mal_id}>{genre.name}</p>;
+              })
+            ) : (
+              <p>No data</p>
+            )}
+          </div>
+        )}
       </Link>
-      {
-        showGenres &&
-        <div className={styles.genres}>
-          {item.genres.length !== 0 ? (
-            item.genres.map((genre) => {
-              return <p key={genre.mal_id}>{genre.name}</p>;
-            })
-          ) : (
-            <p>No data</p>
-          )}
-        </div>
-      }
     </li>
   );
 }

@@ -21,6 +21,10 @@
   padding: 1rem;
 }
 
+.container li:hover {
+  background-color: #adacac;
+}
+
 .searchCell {
   text-align: center;
 }
@@ -40,7 +44,8 @@
   display: flex;
   gap: 1rem;
   font-size: .5em;
-  margin-bottom: .5rem;
+  /* margin-bottom: .5rem; */
+  margin: .5rem 0;
   padding-left: 1rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -49,9 +54,9 @@
 .genres p {
   background-color: black;
   color: white;
-  border-radius: .5rem;
+  border-radius: 1rem;
   width: max-content;
-  padding: .5em;
+  padding: .8em;
 }
 
 .pageCount { 
@@ -59,14 +64,24 @@
   justify-content: center;
   gap: 1rem;
   padding: 1rem;
-  /* background-color: black;
-  color: white; */
 }
 
 .number { 
-  padding: .4rem;
+  all: unset;
+  /* padding: .4rem; */
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  background-color: grey;
+  width: 30px;
+  height: 30px;
+}
+
+.number:hover {
+  background-color: #adacac;
 }
 
 .activePageNumber {
-  background-color: grey;
+  background-color: black;
+  color: white;
 }
