@@ -11,13 +11,11 @@ export default function ResultSearchRow({ item, setData, styles, showGenres }) {
         }}
       >
         <div className={styles.resultRow}>
-          <div>
-            <span className={styles.titleEnglish}>
-              {item.title ? item.title : item.title_english}
-            </span>
+          <div className={styles.title}>
+            {item.title ? item.title : item.title_english}
           </div>
-          <div className={styles.searchCell}>{item.type}</div>
-          <div className={styles.SearchCell}>{item.status}</div>
+          <div className={styles.type}>{item.type}</div>
+          <div className={styles.status}>{item.status}</div>
           <div className={styles.imageWrapper}>
             <img
               className={styles.searchImage}

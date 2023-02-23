@@ -1,6 +1,6 @@
 .container {
   margin-top: 5rem;
-  width: 70%;
+  width: 50%;
   min-height: 100vh;
 }
 
@@ -19,13 +19,14 @@
   align-items: center;
   grid-template-columns: repeat(4, 1fr);
   padding: 1rem;
+  font-size: .9em;
 }
 
 .container li:hover {
   background-color: #adacac;
 }
 
-.searchCell {
+.type, .status {
   text-align: center;
 }
 
@@ -75,13 +76,47 @@
   background-color: grey;
   width: 30px;
   height: 30px;
+  color: white;
 }
 
 .number:hover {
-  background-color: #adacac;
+  background-color: black;
 }
 
 .activePageNumber {
   background-color: black;
-  color: white;
+}
+
+.loading {
+  text-align: center;
+}
+
+@media (width <= 768px) {
+  .container {
+    width: 100%;
+  }
+
+  .resultRow {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+    "a a a"
+    "b c d";
+    place-content: center;
+  }
+
+  .title {
+    grid-area: a;
+  }
+
+  .type {
+    grid-area: b;
+  }
+
+  .status {
+    grid-area: c;
+  }
+
+  .imageWrapper {
+    grid-area: d;
+  }
 }

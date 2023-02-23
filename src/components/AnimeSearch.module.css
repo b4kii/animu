@@ -59,12 +59,12 @@ input[type="search"]::-webkit-search-cancel-button {
   top: 3.4rem;
 }
 
-.searchCell {
+.type, .status {
   text-align: center;
   font-size: 0.9em;
 }
 
-.titleEnglish {
+.title {
   font-size: 0.9em;
 }
 

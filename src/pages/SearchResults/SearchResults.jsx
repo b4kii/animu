@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import ResultSearchRow from "../../components/ResultSearchRow";
 
 import styles from "./SearchResults.module.css";
 
-function PageCount({ pageNumbers, setCurrentPage, currentPage, keyword}) {
+function PageCount({ pageNumbers, setCurrentPage, currentPage, keyword }) {
   const navigate = useNavigate();
 
   const numbers = [];
@@ -21,10 +20,12 @@ function PageCount({ pageNumbers, setCurrentPage, currentPage, keyword}) {
         return (
           <button
             key={number}
-            className={`${styles.number} ${number === currentPage && styles.activePageNumber}`}
+            className={`${styles.number} ${
+              number === currentPage && styles.activePageNumber
+            }`}
             onClick={() => {
-              setCurrentPage(number)
-              navigate(`/search-results/${keyword}/${number}`)
+              setCurrentPage(number);
+              navigate(`/search-results/${keyword}/${number}`);
             }}
           >
             {number}
@@ -40,23 +41,26 @@ export default function SearchResults() {
 
   const [resultData, setResultData] = useState(data?.data);
   const [currentPage, setCurrentPage] = useState(data.pagination.current_page);
+  const [loading, setLoading] = useState(false);
 
   const url = `https://api.jikan.moe/v4/anime?q=${keyword}&page=${currentPage}`;
 
   useEffect(() => {
-
     const fetchData = async () => {
+      setLoading(true);
       const res = await axios.get(url);
       setResultData(res.data.data);
-    }
+      setLoading(false);
+    };
 
     fetchData();
-
-  }, [url])
+  }, [url]);
 
   return (
     <div className={styles.container}>
-      {data.data.length === 0 ? (
+      {loading ? (
+        <h1 className={styles.loading}>Loading...</h1>
+      ) : data.data.length === 0 ? (
         <h1 className={styles.resultsHeader}>
           No results found for "{keyword}"
         </h1>

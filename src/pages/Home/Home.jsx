@@ -41,7 +41,7 @@ export default function Home() {
       <h1>More content soon...</h1>
       <main className={styles.container}>
         <div>
-          <p className={styles.greeting}>Hello there!</p>
+          {/* <p className={styles.greeting}>Hello there!</p>
           <p className={`${styles.note} ${styles.delay1}`}>
             Search for information about your favourite anime.
           </p>
@@ -50,7 +50,7 @@ export default function Home() {
           </p>
           <p className={`${styles.note} ${styles.delay3}`}>
             Look into interesting recommendations.
-          </p>
+          </p> */}
         </div>
         <RandomAnime data={data} />
       </main>
