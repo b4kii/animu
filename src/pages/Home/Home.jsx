@@ -38,8 +38,9 @@ export default function Home() {
 
   return (
     <>
-      <h1>More content soon...</h1>
       <main className={styles.container}>
+      <h1>Search information about your favourite anime!</h1>
+      <p>More content soon...</p>
         <div>
           {/* <p className={styles.greeting}>Hello there!</p>
           <p className={`${styles.note} ${styles.delay1}`}>

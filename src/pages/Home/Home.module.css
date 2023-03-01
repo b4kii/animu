@@ -2,6 +2,7 @@
   min-height: 100vh;
   width: 70%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 1rem;
   padding: 1rem;
@@ -9,7 +10,7 @@
   gap: 2rem;
 }
 
-.container h1 {
+.container p, h1 {
   padding-top: 4rem;
 }
 
