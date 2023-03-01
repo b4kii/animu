@@ -40,7 +40,7 @@ export default function Home() {
     <>
       <main className={styles.container}>
       <h1>Search information about your favourite anime!</h1>
-      <p>More content soon...</p>
+      <p>Work still in progress. More content soon...</p>
         <div>
           {/* <p className={styles.greeting}>Hello there!</p>
           <p className={`${styles.note} ${styles.delay1}`}>
